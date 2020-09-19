@@ -1,0 +1,22 @@
+.navbar-link-home {
+	color: $color-white;
+
+	&:hover {
+		text-decoration: none;
+		color: $color-white;
+	}
+}
+
+.navbar-container-link {
+	margin-left: 20px;
+
+	> a {
+		padding: 10px;
+		color: $color-white;
+	}
+
+	> a:hover {
+		text-decoration: none;
+		color: $color-violet;
+	}
+}

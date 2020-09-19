@@ -9,7 +9,8 @@ export const Navbar = () => {
 				<Link className="navbar-link-home" to="/">
 					<Typography variant="h6">
 						Movie App
-				</Typography></Link>
+					</Typography>
+				</Link>
 				<div className="navbar-container-link">
 					<Link>Películas</Link>
 					<Link>TV Shows</Link>

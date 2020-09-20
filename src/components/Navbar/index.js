@@ -5,13 +5,13 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom';
-import { useMenu } from '../../hooks/useMenu';
+import { useToggle } from '../../hooks';
 
 export const Navbar = () => {
-	const [openMovie, handleOpenMovie, handleCloseMovie] = useMenu(false);
-	const [openShow, handleOpenShow, handleCloseShow] = useMenu(false);
-	const [openPeople, handleOpenPeople, handleClosePeople] = useMenu(false);
-	const [openDrawer, handleOpenDrawer, handleCloseDrawer] = useMenu(false);
+	const [openMovie, handleOpenMovie, handleCloseMovie] = useToggle(false);
+	const [openShow, handleOpenShow, handleCloseShow] = useToggle(false);
+	const [openPeople, handleOpenPeople, handleClosePeople] = useToggle(false);
+	const [openDrawer, handleOpenDrawer, handleCloseDrawer] = useToggle(false);
 
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);

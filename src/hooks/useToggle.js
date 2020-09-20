@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useMenu = (value = false) => {
+export const useToggle = (value = false) => {
 	const [open, setOpen] = useState(value);
 
 	const handleOpenMenu = () => {

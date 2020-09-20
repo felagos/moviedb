@@ -16,7 +16,6 @@ export const HomePage = () => {
 		dispatch(loadUpcomingMovies());
 	}, [dispatch]);
 
-
 	return (
 		<HomeLayout>
 			<div className="home-section">

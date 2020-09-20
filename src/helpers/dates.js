@@ -8,3 +8,9 @@ export const castToMonthDay = date => {
 
 	return `${months[month]} ${day}, ${year}`;
 };
+
+
+export const getYear = date => {
+	const tokens = date.split("-");
+	return tokens[0];
+}

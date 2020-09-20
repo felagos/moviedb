@@ -1,0 +1,27 @@
+.media-list-container {
+	display: flex;
+	overflow-x: scroll;
+}
+
+.media-card {
+	padding: 10px;
+}
+
+.media-img-source {
+	height: 225px;
+	width: 150px;
+	border-radius: 8px;
+}
+
+.media-card-content {
+	display: flex;
+	flex-direction: column;
+
+	.media-title {
+		font-weight: bold;
+	}
+
+	.media-date {
+		color: $color-gray;
+	}
+}

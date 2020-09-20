@@ -2,7 +2,8 @@ import axios from 'axios';
 import { ENV } from '../env';
 
 axios.interceptors.request.use((config) => {
-	config.url = config.url.includes("=") ? `${config.url}&api_key=${ENV.API_KEY}` : `${config.url}?api_key=${ENV.API_KEY}`;
+	const urlParams = `api_key=${ENV.API_KEY}&language=es-ES`;
+	config.url = config.url.includes("=") ? `${config.url}&${urlParams}` : `${config.url}?${urlParams}`;
 	return config;
 }, (error) => {
 	return Promise.reject(error);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { loadGenres } from '../actions';
+import { loadGenres, loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../actions';
 import { HomePage } from '../pages';
 
 export const AppRouter = () => {
@@ -9,6 +9,9 @@ export const AppRouter = () => {
 
 	useEffect(() => {
 		dispatch(loadGenres());
+		dispatch(loadPopularMovies());
+		dispatch(loadTrendingMovies());
+		dispatch(loadUpcomingMovies());
 	}, [dispatch]);
 
 	return (

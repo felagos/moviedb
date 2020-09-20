@@ -1,6 +1,23 @@
 .media-list-container {
 	display: flex;
+	flex: 1;
+	flex-direction: row;
 	overflow-x: scroll;
+}
+
+.media-carousel {
+	display: flex;
+	flex-direction: row;
+
+	.media-btn-carousel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.media-icon-carousel {
+		cursor: pointer;
+	}
 }
 
 .media-card {

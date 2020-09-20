@@ -20,3 +20,8 @@ export const getTrendingMovies = async () => {
 	const response = await axios.get(`${ENV.API_URL}/trending/movie/week`);
 	return response.data.results;
 }
+
+export const getDetailMovie = async (id) => {
+	const response = await axios.get(`${ENV.API_URL}/movie/${id}`);
+	return response.data;
+}

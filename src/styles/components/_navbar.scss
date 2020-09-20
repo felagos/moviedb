@@ -1,3 +1,30 @@
+@media (max-width: 630px) {
+	.navbar-container-link {
+		display: none !important;
+	}
+
+	.navbar-btn-auth {
+		flex: 1 !important;
+		button {
+			float: right;
+		}
+	}
+
+	.navbar-drawer {
+		display: block !important;
+	}
+}
+
+@media (min-width: 630px) {
+	.navbar-drawer {
+		display: none !important;
+	}
+}
+
+.navbar-header {
+	background-color: $color-dark-blue !important;
+}
+
 .navbar-link-home {
 	color: $color-white;
 
@@ -9,6 +36,7 @@
 
 .navbar-container-link {
 	margin-left: 20px;
+	flex: 80;
 
 	button {
 		margin-left: 10px;
@@ -26,5 +54,38 @@
 	&:hover {
 		color: $color-black;
 		text-decoration: none;
+	}
+}
+
+.navbar-btn-auth {
+	button {
+		color: $color-white !important;
+	}
+}
+
+.navbar-drawer {
+	color: $color-white !important;
+}
+
+.navbar-drawer-container {
+	background-color: $color-dark-blue !important;
+	color: $color-white;
+	height: 100%;
+	width: 200px;
+}
+
+.navbar-accordion {
+	background-color: $color-dark-blue !important;
+
+	a {
+		color: $color-white;
+	}
+
+	.navbar-accordion-title{
+		color: $color-white;
+	}
+
+	.navbar-accordion-icon {
+		color: $color-white;
 	}
 }

@@ -9,8 +9,7 @@ export const MediaCard = ({ item }) => {
 
 	const goToDetail = () => {
 		const url = `/movie/${slugUrl(item.id, item.original_title)}`;
-		alert(url);
-		history.push(url, item);
+		history.push(url, { id: item.id });
 	};
 
 	return (

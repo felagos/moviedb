@@ -6,7 +6,7 @@ export const HomeLayout = ({ children }) => {
 	return (
 		<>
 			<Navbar />
-			<Container className="home-container" fixed>
+			<Container className="home-container">
 				{children}
 			</Container>
 		</>

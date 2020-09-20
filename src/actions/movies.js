@@ -34,3 +34,8 @@ export const loadDetailMovie = (id) => {
 		dispatch(_setActiveMovie(response));
 	}
 };
+
+
+export const clenActiveMovie = () => {
+	return _setActiveMovie(null);
+}

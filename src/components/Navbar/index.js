@@ -12,9 +12,9 @@ export const Navbar = () => {
 					</Typography>
 				</Link>
 				<div className="navbar-container-link">
-					<Link>Películas</Link>
-					<Link>TV Shows</Link>
-					<Link>Personas</Link>
+					<Link to="/">Películas</Link>
+					<Link to="/">TV Shows</Link>
+					<Link to="/">Personas</Link>
 				</div>
 			</Toolbar>
 		</AppBar>

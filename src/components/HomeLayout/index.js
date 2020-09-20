@@ -5,10 +5,10 @@ import { Navbar } from '../Navbar'
 export const HomeLayout = ({ children }) => {
 	return (
 		<>
-		<Navbar />
-		<Container className="home-container" fixed>
-			{children}
-		</Container>
+			<Navbar />
+			<Container className="home-container" fixed>
+				{children}
+			</Container>
 		</>
 	)
 }

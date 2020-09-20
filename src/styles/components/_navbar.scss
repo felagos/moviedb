@@ -10,13 +10,21 @@
 .navbar-container-link {
 	margin-left: 20px;
 
-	> a {
-		padding: 10px;
+	button {
+		margin-left: 10px;
 		color: $color-white;
 	}
+}
 
-	> a:hover {
+.navbar-menu {
+	top: 50px !important;
+}
+
+.navbar-link {
+	color: $color-black;
+
+	&:hover {
+		color: $color-black;
 		text-decoration: none;
-		color: $color-violet;
 	}
 }

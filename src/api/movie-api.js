@@ -31,7 +31,7 @@ export const getKeywordsMovies = async (id) => {
 	return response.data.keywords;
 }
 
-export const getMediasVideos = async (id) => {
+export const getRelatedVideos = async (id) => {
 	const response = await axios.get(`${ENV.API_URL}/movie/${id}/videos`);
 	return response.data.results;
 }

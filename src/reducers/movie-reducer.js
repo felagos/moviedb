@@ -4,7 +4,10 @@ const inititalState = {
 	popular: [],
 	upcoming: [],
 	trending: [],
-	active: null
+	active: null,
+	keywords: [],
+	recommendations: [],
+	related: []
 };
 
 export const movieReducer = (state = inititalState, action) => {
@@ -21,7 +24,19 @@ export const movieReducer = (state = inititalState, action) => {
 	}
 
 	if (action.type === MOVIE_TYPES.SET_ACTIVE) {
-		return { ...state, active: action.payload };
+		return { ...state, active: action.payload, keywords: [], recommendations: [] };
+	}
+
+	if (action.type === MOVIE_TYPES.LOAD_RECCOMENDATIONS) {
+		return { ...state, recommendations: action.payload };
+	}
+
+	if (action.type === MOVIE_TYPES.LOAD_KEYWORDS) {
+		return { ...state, keywords: action.payload };
+	}
+
+	if (action.type === MOVIE_TYPES.LOAD_RELATED) {
+		return { ...state, related: action.payload };
 	}
 
 	return state;

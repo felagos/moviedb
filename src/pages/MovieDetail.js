@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 import { useLocation } from 'react-router-dom';
-import { loadDetailMovie, clenActiveMovie } from '../actions/movies';
+import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../actions/movies';
 import { getYear } from '../helpers';
 import { ListMedia } from '../components/ListMedia';
 import { Divider } from '@material-ui/core';
@@ -10,10 +10,13 @@ import { Divider } from '@material-ui/core';
 export const MovieDetail = () => {
 	const { state } = useLocation();
 	const dispatch = useDispatch();
-	const { active: item } = useSelector(state => state.movie);
+	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
 
 	useEffect(() => {
 		dispatch(loadDetailMovie(state.id));
+		dispatch(loadKeywordsMovie(state.id));
+		dispatch(loadRecommendationsMovie(state.id));
+		dispatch(loadRelatedVideos(state.id));
 
 		return () => {
 			dispatch(clenActiveMovie());
@@ -50,10 +53,9 @@ export const MovieDetail = () => {
 				</div>
 			</div>
 
-
 			<div className="media-movie-recommendations">
 				<Divider />
-				<ListMedia title="Recomendados" media={item.recommendations} />
+				<ListMedia title="Recomendados" media={recommendations} />
 			</div>
 
 		</div>

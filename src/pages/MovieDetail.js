@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie } from '../actions/movies';
 import { getYear } from '../helpers';
 import { ListMedia } from '../components/ListMedia';
+import { Divider } from '@material-ui/core';
 
 export const MovieDetail = () => {
 	const { state } = useLocation();
@@ -22,7 +23,7 @@ export const MovieDetail = () => {
 
 	useEffect(() => {
 		if (item) {
-			document.title =`${item.title} (${getYear(item.release_date)})`;
+			document.title = `${item.title} (${getYear(item.release_date)})`;
 		}
 	}, [item]);
 
@@ -49,7 +50,9 @@ export const MovieDetail = () => {
 				</div>
 			</div>
 
+
 			<div className="media-movie-recommendations">
+				<Divider />
 				<ListMedia title="Recomendados" media={item.recommendations} />
 			</div>
 

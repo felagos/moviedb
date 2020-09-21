@@ -6,7 +6,7 @@ export const ListChip = ({ chips }) => {
 		<div className="chips-cotainer">
 			{
 				chips.map((chip, idx) => (
-					<Chip key={idx} label={chip.name} />
+					<Chip className="chip-item" key={idx} label={chip.name} />
 				))
 			}
 		</div>

@@ -6,14 +6,14 @@ export const ListMedia = ({ media, title }) => {
 
 	return (
 		<>
-		<h2>{title}</h2>
-		<div className="media-list-container">
-			{
-				media.map((item, idx) => (
-					<MediaCard key={idx} item={item} />
-				))
-			}
-		</div>
+			<h2>{title}</h2>
+			<div className="media-list-container">
+				{
+					media.map((item, idx) => (
+						<MediaCard key={idx} item={item} />
+					))
+				}
+			</div>
 		</>
 
 	)

@@ -10,21 +10,24 @@ const _setActiveMovie = (movie) => ({ type: MOVIE_TYPES.SET_ACTIVE, payload: mov
 
 export const loadPopularMovies = () => {
 	return async (dispatch) => {
-		const response = await getPopularMovies();
+		let response = await getPopularMovies();
+		response = response.filter(item => { return !!item.poster_path });
 		dispatch(_loadPopularMovies(response));
 	}
 };
 
 export const loadUpcomingMovies = () => {
 	return async (dispatch) => {
-		const response = await getUpcomingMovies();
+		let response = await getUpcomingMovies();
+		response = response.filter(item => { return !!item.poster_path });
 		dispatch(_loadUpcomingMovies(response));
 	}
 };
 
 export const loadTrendingMovies = () => {
 	return async (dispatch) => {
-		const response = await getTrendingMovies();
+		let response = await getTrendingMovies();
+		response = response.filter(item => { return !!item.poster_path });
 		dispatch(_loadTrendingMovies(response));
 	}
 };
@@ -46,7 +49,8 @@ export const loadKeywordsMovie = (id) => {
 
 export const loadRecommendationsMovie = (id) => {
 	return async (dispatch) => {
-		const recommendations = await getRecommendationsMovies(id);
+		let recommendations = await getRecommendationsMovies(id);
+		recommendations = recommendations.filter(item => { return !!item.poster_path });
 		dispatch(_loadRecommendationsMovies(recommendations));
 	}
 };

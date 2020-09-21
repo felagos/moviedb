@@ -9,6 +9,16 @@
 	}
 }
 
+@media (max-width: 930px) {
+	.media-movie-videos {
+		width: 100% !important;
+	}
+
+	.media-movie-sections {
+		flex-direction: column !important;
+	}
+}
+
 .media-list-container {
 	display: flex;
 	flex: 1;
@@ -94,7 +104,38 @@
 	}
 }
 
-
-.media-movie-recommendations {
+.media-movie-videos-section {
 	padding-top: 20px;
+}
+
+.media-movie-videos {
+	width: 80%;
+}
+
+.media-movie-sections {
+	display: flex;
+	flex-direction: row;
+}
+
+.media-movie-info {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-left: 20px;
+
+	.media-movie-info-part {
+		display: flex;
+		flex-direction: column;
+		margin-top: 15px;
+
+		.media-title {
+			font-weight: 500;
+		}
+	}
+
+	.media-movie-keywords {
+		> .MuiChip-root {
+			margin: 5px;
+		}
+	}
 }

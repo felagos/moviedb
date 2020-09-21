@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../actions/movies';
 import { getYear } from '../helpers';
 import { ListMedia } from '../components/ListMedia';
-import { Divider } from '@material-ui/core';
+import { Chip, Divider } from '@material-ui/core';
 
 export const MovieDetail = () => {
 	const { state } = useLocation();
@@ -32,6 +32,8 @@ export const MovieDetail = () => {
 
 	if (item === null) return null;
 
+	console.log(related)
+
 	return (
 		<div className="media-movie-container">
 			<div className="media-cover">
@@ -51,10 +53,43 @@ export const MovieDetail = () => {
 				</div>
 			</div>
 
-			<div className="media-movie-recommendations">
-				<Divider />
-				<ListMedia title="Recomendados" media={recommendations} />
+			<div className="media-movie-sections">
+				<div className="media-movie-videos">
+					<div className="media-movie-videos-section">
+						<Divider />
+						<ListMedia title="Recomendados" media={recommendations} />
+					</div>
+				</div>
+
+				<div className="media-movie-info">
+					<div className="media-movie-info-part">
+						<span className="media-title">Título original</span>
+						<span>{item.original_title}</span>
+					</div>
+
+					<div className="media-movie-info-part">
+						<span className="media-title">Estado</span>
+						<span>{item.status}</span>
+					</div>
+
+					<div className="media-movie-info-part">
+						<span className="media-title">Idioma original</span>
+						<span>{item.spoken_languages.map(language => language.name).join(" - ")}</span>
+					</div>
+
+					<div className="media-movie-info-part">
+						<span className="media-title">Palabras claves</span>
+						<div className="media-movie-keywords">
+							{
+								keywords.map((keyword, idx) => (
+									<Chip key={idx} label={keyword.name} />
+								))
+							}
+						</div>
+					</div>
+				</div>
 			</div>
+
 
 		</div>
 	)

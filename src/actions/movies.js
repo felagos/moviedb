@@ -1,4 +1,4 @@
-import { getDetailMovie, getPopularMovies, getTrendingMovies, getUpcomingMovies } from '../api';
+import { getDetailMovie, getKeywordsMovies, getMediasVideos, getPopularMovies, getRecommendationsMovies, getTrendingMovies, getUpcomingMovies } from '../api';
 import { MOVIE_TYPES } from '../types';
 
 const _loadPopularMovies = (movies) => ({ type: MOVIE_TYPES.LOAD_POPULAR, payload: movies });
@@ -31,6 +31,14 @@ export const loadTrendingMovies = () => {
 export const loadDetailMovie = (id) => {
 	return async (dispatch) => {
 		const response = await getDetailMovie(id);
+		const recommendations = await getRecommendationsMovies(id);
+		const keywords = await getKeywordsMovies(id);
+		const mediasVideos = await getMediasVideos(id);
+
+		response.recommendations = recommendations.slice(0, 10);
+		response.keywords = keywords;
+		response.mediasVideos = mediasVideos;
+
 		dispatch(_setActiveMovie(response));
 	}
 };

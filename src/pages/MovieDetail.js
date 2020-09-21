@@ -4,6 +4,7 @@ import Rating from '@material-ui/lab/Rating';
 import { useLocation } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie } from '../actions/movies';
 import { getYear } from '../helpers';
+import { ListMedia } from '../components/ListMedia';
 
 export const MovieDetail = () => {
 	const { state } = useLocation();
@@ -21,7 +22,7 @@ export const MovieDetail = () => {
 
 	useEffect(() => {
 		if (item) {
-			document.title = item.title;
+			document.title =`${item.title} (${getYear(item.release_date)})`;
 		}
 	}, [item]);
 
@@ -47,6 +48,11 @@ export const MovieDetail = () => {
 					</div>
 				</div>
 			</div>
+
+			<div className="media-movie-recommendations">
+				<ListMedia title="Recomendados" media={item.recommendations} />
+			</div>
+
 		</div>
 	)
 }

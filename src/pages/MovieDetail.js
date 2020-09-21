@@ -4,7 +4,7 @@ import Rating from '@material-ui/lab/Rating';
 import { useLocation } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../actions/movies';
 import { getYear } from '../helpers';
-import { ListMedia } from '../components/ListMedia';
+import { ListChip, ListMedia } from '../components';
 import { Chip, Divider } from '@material-ui/core';
 
 export const MovieDetail = () => {
@@ -79,13 +79,7 @@ export const MovieDetail = () => {
 
 					<div className="media-movie-info-part">
 						<span className="media-title">Palabras claves</span>
-						<div className="media-movie-keywords">
-							{
-								keywords.map((keyword, idx) => (
-									<Chip key={idx} label={keyword.name} />
-								))
-							}
-						</div>
+						<ListChip chips={keywords} />
 					</div>
 				</div>
 			</div>

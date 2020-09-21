@@ -61,6 +61,6 @@ export const loadRelatedVideos = (id) => {
 	}
 };
 
-export const clenActiveMovie = () => {
-	return _setActiveMovie(null);
-}
+export const clenActiveMovie = () => ({
+	type: MOVIE_TYPES.CLEAN_ACTIVE
+});

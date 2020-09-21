@@ -24,7 +24,7 @@ export const movieReducer = (state = inititalState, action) => {
 	}
 
 	if (action.type === MOVIE_TYPES.SET_ACTIVE) {
-		return { ...state, active: action.payload, keywords: [], recommendations: [] };
+		return { ...state, active: action.payload };
 	}
 
 	if (action.type === MOVIE_TYPES.LOAD_RECCOMENDATIONS) {
@@ -37,6 +37,10 @@ export const movieReducer = (state = inititalState, action) => {
 
 	if (action.type === MOVIE_TYPES.LOAD_RELATED) {
 		return { ...state, related: action.payload };
+	}
+
+	if (action.type === MOVIE_TYPES.CLEAN_ACTIVE) {
+		return { ...state, related: [], recommendations: [], keywords: [], active: null };
 	}
 
 	return state;

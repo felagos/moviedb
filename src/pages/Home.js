@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { HomeLayout } from '../components/HomeLayout';
 import { ListMedia } from '../components/ListMedia';
 import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../actions';
 
@@ -16,7 +15,7 @@ export const HomePage = () => {
 	}, [dispatch]);
 
 	return (
-		<HomeLayout>
+		<>
 			<div className="home-section">
 				<h2>Popular</h2>
 				<ListMedia media={popular} />
@@ -29,6 +28,6 @@ export const HomePage = () => {
 				<h2>Tendencias</h2>
 				<ListMedia media={trending} />
 			</div>
-		</HomeLayout>
+		</>
 	)
 }

@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core'
 import React from 'react'
 import { Navbar } from '../Navbar'
 
-export const HomeLayout = ({ children }) => {
+export const Layout = ({ children }) => {
 	return (
 		<>
 			<Navbar />

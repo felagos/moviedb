@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MediaCard } from '../MediaCard';
 
-export const ListMedia = ({ media }) => {
+export const ListMedia = ({ media, title }) => {
 
 	return (
+		<>
+		<h2>{title}</h2>
 		<div className="media-list-container">
 			{
 				media.map((item, idx) => (
@@ -12,6 +14,7 @@ export const ListMedia = ({ media }) => {
 				))
 			}
 		</div>
+		</>
 
 	)
 }

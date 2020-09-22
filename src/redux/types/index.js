@@ -12,3 +12,7 @@ export const MOVIE_TYPES = {
 	LOAD_RELATED: "LOAD_RELATED",
 	CLEAN_ACTIVE: "CLEAN_ACTIVE"
 };
+
+export const SEARCH_TYPES = {
+	DO_SEARCH: "DO_SEARCH"
+}

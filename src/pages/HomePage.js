@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ListMedia } from '../components/ListMedia';
-import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../actions';
+import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../redux';
 import { Search } from '../components';
 
 export const HomePage = () => {

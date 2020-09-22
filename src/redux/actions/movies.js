@@ -1,4 +1,4 @@
-import { getDetailMovie, getKeywordsMovies, getRelatedVideos, getPopularMovies, getRecommendationsMovies, getTrendingMovies, getUpcomingMovies } from '../api';
+import { getDetailMovie, getKeywordsMovies, getRelatedVideos, getPopularMovies, getRecommendationsMovies, getTrendingMovies, getUpcomingMovies } from '../../api';
 import { MOVIE_TYPES } from '../types';
 
 const _loadPopularMovies = (movies) => ({ type: MOVIE_TYPES.LOAD_POPULAR, payload: movies });

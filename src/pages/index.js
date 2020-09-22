@@ -1,2 +1,2 @@
-export * from './Home';
-export * from './MediaDetail';
+export * from './HomePage';
+export * from './MediaDetailPage';

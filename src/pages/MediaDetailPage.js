@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 import { useLocation } from 'react-router-dom';
-import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../actions/movies';
+import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../redux';
 import { getYear } from '../helpers';
 import { ListChip, ListMedia } from '../components';
 import { Divider } from '@material-ui/core';
 
-export const MediaDetail = () => {
+export const MediaDetailPage = () => {
 	const { state: { id, type } } = useLocation();
 	const dispatch = useDispatch();
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);

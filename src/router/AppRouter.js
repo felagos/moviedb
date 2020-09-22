@@ -14,7 +14,7 @@ export const AppRouter = () => {
 					<Switch>
 						<Route exact path="/" component={HomePage} />
 						<Route exact path="/:type/:id/" component={MediaDetailPage} />
-						<Route exact path="search" component={SearchPage} />
+						<Route exact path="/search" component={SearchPage} />
 					</Switch>
 				</Layout>
 			</Suspense>

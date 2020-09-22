@@ -24,10 +24,9 @@ export const Search = () => {
 					value={values.search}
 					onChange={handleChange}
 					placeholder="Buscar una película, programa de televisión, persona ......"
-					onClick={handleSearch}
 					endAdornment={
 						<InputAdornment position="end">
-							<IconButton>
+							<IconButton onClick={handleSearch}>
 								<SearchIcon />
 							</IconButton>
 						</InputAdornment>

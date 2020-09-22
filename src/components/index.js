@@ -4,3 +4,4 @@ export * from './ListMedia';
 export * from './Navbar';
 export * from './Search';
 export * from './HomeSections';
+export * from './LoadingLayout';

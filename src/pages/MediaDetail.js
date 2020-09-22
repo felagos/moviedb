@@ -79,10 +79,13 @@ export const MediaDetail = () => {
 						<span>{item.spoken_languages.map(language => language.name).join(" - ")}</span>
 					</div>
 
-					<div className="media-movie-info-part">
-						<span className="media-title">Palabras claves</span>
-						<ListChip chips={keywords} />
-					</div>
+					{
+						keywords.length !== 0 &&
+						<div className="media-movie-info-part">
+							<span className="media-title">Palabras claves</span>
+							<ListChip chips={keywords} />
+						</div>
+					}
 				</div>
 			</div>
 

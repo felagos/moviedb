@@ -32,8 +32,6 @@ export const MovieDetail = () => {
 
 	if (item === null) return null;
 
-	console.log(related)
-
 	return (
 		<div className="media-movie-container">
 			<div className="media-cover">

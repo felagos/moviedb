@@ -7,22 +7,22 @@ import { getYear } from '../helpers';
 import { ListChip, ListMedia } from '../components';
 import { Divider } from '@material-ui/core';
 
-export const MovieDetail = () => {
-	const { state } = useLocation();
+export const MediaDetail = () => {
+	const { state: { id, type } } = useLocation();
 	const dispatch = useDispatch();
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
 
 	useEffect(() => {
-		dispatch(loadDetailMovie(state.id));
-		dispatch(loadKeywordsMovie(state.id));
-		dispatch(loadRecommendationsMovie(state.id));
-		dispatch(loadRelatedVideos(state.id));
+		dispatch(loadDetailMovie(id));
+		dispatch(loadKeywordsMovie(id));
+		dispatch(loadRecommendationsMovie(id));
+		dispatch(loadRelatedVideos(id));
 
 		return () => {
 			dispatch(clenActiveMovie());
 		}
 
-	}, [dispatch, state.id]);
+	}, [dispatch, id]);
 
 	useEffect(() => {
 		if (item) {

@@ -5,12 +5,12 @@ import { useHistory } from 'react-router-dom';
 
 export const MediaCard = React.memo(
 	({ item }) => {
-
 		const history = useHistory();
 
 		const goToDetail = () => {
-			const url = `/movie/${slugUrl(item.id, item.original_title)}`;
-			history.push(url, { id: item.id });
+			const type = item.seasons ? "tv" : "movie";
+			const url = `/${type}/${slugUrl(item.id, item.original_title)}`;
+			history.push(url, { id: item.id, type });
 		};
 
 		return (

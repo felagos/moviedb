@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { HomePage, MovieDetail } from '../pages';
+import { HomePage, MediaDetail } from '../pages';
 import { Layout } from '../components';
 
 export const AppRouter = () => {
@@ -9,7 +9,7 @@ export const AppRouter = () => {
 			<Layout>
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					<Route exact path="/movie/:id" component={MovieDetail} />
+					<Route exact path="/movie/:id" component={MediaDetail} />
 				</Switch>
 			</Layout>
 		</BrowserRouter>

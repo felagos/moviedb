@@ -4,8 +4,8 @@ import Rating from '@material-ui/lab/Rating';
 import { useLocation } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../actions/movies';
 import { getYear } from '../helpers';
-import { ListChip, ListMedia } from '../components';
-import { Chip, Divider } from '@material-ui/core';
+import { ListChip, ListIframe, ListMedia } from '../components';
+import { Divider } from '@material-ui/core';
 
 export const MovieDetail = () => {
 	const { state } = useLocation();
@@ -58,6 +58,10 @@ export const MovieDetail = () => {
 					<div className="media-movie-videos-section">
 						<Divider />
 						<ListMedia title="Recomendados" media={recommendations} />
+					</div>
+					<div className="media-movie-videos-section">
+						<Divider />
+						<ListIframe data={related} title="Medias" />
 					</div>
 				</div>
 

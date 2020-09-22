@@ -8,25 +8,26 @@ import { useToggle } from '../../hooks';
 import { MenuSelector } from '../MenuItem';
 import { Sidebar } from '../Sidebar';
 
+const linksMovie = [
+	{ to: "/", name: "Popular" },
+	{ to: "/", name: "Proximamente" },
+	{ to: "/", name: "Lo más valorado" }
+];
+const linksShow = [
+	{ to: "/", name: "Popular" },
+	{ to: "/", name: "On TV" },
+	{ to: "/", name: "Lo más valorado" }
+];
+const linksPeople = [
+	{ to: "/", name: "Popular" }
+];
+
 export const Navbar = () => {
 	const [openMovie, handleOpenMovie, handleCloseMovie] = useToggle(false);
-	const [openShow, handleOpenShow, handleCloseShow] = useToggle(false);
+	const [openTvShow, handleOpenTvShow, handleCloseTvShow] = useToggle(false);
 	const [openPeople, handleOpenPeople, handleClosePeople] = useToggle(false);
 	const [openDrawer, handleOpenDrawer, handleCloseDrawer] = useToggle(false);
 
-	const linksMovie = [
-		{ to: "/", name: "Popular" },
-		{ to: "/", name: "Proximamente" },
-		{ to: "/", name: "Lo más valorado" }
-	];
-	const linksShow = [
-		{ to: "/", name: "Popular" },
-		{ to: "/", name: "On TV" },
-		{ to: "/", name: "Lo más valorado" }
-	];
-	const linksPeople = [
-		{ to: "/", name: "Popular" }
-	];
 
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);
@@ -48,8 +49,8 @@ export const Navbar = () => {
 						<Button ref={btnMovie} onClick={handleOpenMovie} variant="outlined">Películas</Button>
 						<MenuSelector anchorEl={btnMovie.current} open={openMovie} handleClose={handleCloseMovie} links={linksMovie} />
 
-						<Button ref={btnShow} variant="outlined" onClick={handleOpenShow}>TV Shows</Button>
-						<MenuSelector anchorEl={btnShow.current} open={openShow} handleClose={handleCloseShow} links={linksShow} />
+						<Button ref={btnShow} variant="outlined" onClick={handleOpenTvShow}>TV Shows</Button>
+						<MenuSelector anchorEl={btnShow.current} open={openTvShow} handleClose={handleCloseTvShow} links={linksShow} />
 
 						<Button ref={btnPeople} variant="outlined" onClick={handleOpenPeople}>Personas</Button>
 						<MenuSelector anchorEl={btnPeople.current} open={openPeople} handleClose={handleClosePeople} links={linksPeople} />
@@ -61,11 +62,8 @@ export const Navbar = () => {
 						</IconButton>
 					</div>
 				</Toolbar>
-
-
 			</AppBar>
 			<Sidebar open={openDrawer} handleClose={handleCloseDrawer} />
-
 		</>
 	)
 }

@@ -17,13 +17,13 @@ export const HomePage = () => {
 	return (
 		<>
 			<div className="home-section">
-				<ListMedia title="Popular" media={popular} />
+				<ListMedia title="Popular" data={popular} type="movies" />
 			</div>
 			<div className="home-section">
-				<ListMedia title="Proximamente" media={upcoming} />
+				<ListMedia title="Proximamente" data={upcoming} type="movies" />
 			</div>
 			<div className="home-section">
-				<ListMedia title="Tendencias" media={trending} />
+				<ListMedia title="Tendencias" data={trending} type="movies" />
 			</div>
 		</>
 	)

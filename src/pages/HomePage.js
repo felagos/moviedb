@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../redux';
 import { HomeSections, Search } from '../components';
 
-export const HomePage = () => {
+const HomePage = () => {
 
 	const dispatch = useDispatch();
 
@@ -20,3 +20,5 @@ export const HomePage = () => {
 		</>
 	)
 }
+
+export default HomePage;

@@ -7,7 +7,7 @@ import { getYear } from '../helpers';
 import { ListChip, ListMedia } from '../components';
 import { Divider } from '@material-ui/core';
 
-export const MediaDetailPage = () => {
+const MediaDetailPage = () => {
 	const { state: { id, type } } = useLocation();
 	const dispatch = useDispatch();
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
@@ -93,3 +93,6 @@ export const MediaDetailPage = () => {
 		</div>
 	)
 }
+
+
+export default MediaDetailPage;

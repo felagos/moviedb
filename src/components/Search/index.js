@@ -2,12 +2,17 @@ import React from 'react';
 import { IconButton, InputAdornment, OutlinedInput } from '@material-ui/core';
 import { Search as SearchIcon } from '@material-ui/icons';
 import { useForm } from '../../hooks';
+import { useHistory } from 'react-router-dom';
+import { slug } from '../../helpers';
 
 export const Search = () => {
+	const history = useHistory();
 	const [values, handleChange] = useForm({ search: "" });
 
 	const handleSearch = () => {
-
+		const { search } = values;
+		const url =`/search/?query=${slug(search, "+")}`;
+		history.push(url);
 	}
 
 	return (

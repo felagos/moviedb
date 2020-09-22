@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { castToMonthDay, slugUrl } from '../../helpers';
+import { castToMonthDay, slug } from '../../helpers';
 import { useHistory } from 'react-router-dom';
 
 export const MediaCard = React.memo(
@@ -9,7 +9,7 @@ export const MediaCard = React.memo(
 
 		const goToDetail = () => {
 			const type = item.seasons ? "tv" : "movie";
-			const url = `/${type}/${slugUrl(item.id, item.original_title)}`;
+			const url = `/${type}/${slug(item.id + "-" + item.original_title)}`;
 			history.push(url, { id: item.id, type });
 		};
 

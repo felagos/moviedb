@@ -1,5 +1,5 @@
 import slugify from 'slugify';
 
-export const slugUrl = (...text, delimiter = " - ") => {
-	return slugify(text.join(" "), delimiter).toLowerCase();
+export const slug = (text, delimiter = " - ") => {
+	return slugify(text, delimiter).toLowerCase();
 }

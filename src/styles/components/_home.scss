@@ -1,7 +1,19 @@
+@media (max-width: 630px) {
+	.home-container {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.home-section {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+
 .home-container {
 	display: flex;
 	flex-direction: column;
-	padding: 10px;
 }
 
 .home-section {

@@ -11,7 +11,7 @@ export const Search = () => {
 
 	const handleSearch = () => {
 		const { search } = values;
-		const url =`/search/?query=${slug(search, "+")}`;
+		const url = `/search/?query=${slug(search, "+")}`;
 		history.push(url);
 	}
 
@@ -23,6 +23,7 @@ export const Search = () => {
 			</div>
 			<div className="search-input-container">
 				<OutlinedInput
+					autoComplete="off"
 					className="search-input"
 					type="search"
 					name="search"

@@ -11,6 +11,7 @@ const HomePage = () => {
 		dispatch(loadPopularMovies());
 		dispatch(loadTrendingMovies());
 		dispatch(loadUpcomingMovies());
+		document.title = "Movie App";
 	}, [dispatch]);
 
 	return (

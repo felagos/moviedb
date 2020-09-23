@@ -8,10 +8,10 @@ const HomePage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		document.title = "Movie App";
 		dispatch(loadPopularMovies());
 		dispatch(loadTrendingMovies());
 		dispatch(loadUpcomingMovies());
-		document.title = "Movie App";
 	}, [dispatch]);
 
 	return (

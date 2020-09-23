@@ -10,6 +10,7 @@ export const Layout = React.memo(
 				<Container className="home-container">
 					{children}
 				</Container>
+				<div className="home-footer"></div>
 			</>
 		)
 	}

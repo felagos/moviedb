@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 	.home-container {
 		margin: 0 !important;
 		padding: 0 !important;
@@ -25,4 +25,8 @@
 	&:last-child {
 		padding-top: 30px;
 	}
+}
+
+.home-footer {
+	padding-bottom: 50px;
 }

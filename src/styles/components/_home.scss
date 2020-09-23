@@ -17,14 +17,7 @@
 }
 
 .home-section {
-	&:first-child {
-		padding-top: 10px;
-	}
-
-	&:nth-child(2),
-	&:last-child {
-		padding-top: 30px;
-	}
+	padding-top: 30px;
 }
 
 .home-footer {

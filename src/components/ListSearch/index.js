@@ -20,7 +20,7 @@ export const ListSearch = ({ handleLoadMore }) => {
                             <CardContent>
                                 <h4>{item.title || item.original_name} - <span className="search-result-type">({item.media_type})</span></h4>
                                 <span>{getFullDate(item.release_date)}</span>
-                                <p>{item.overview}</p>
+                                <p className="search-overview">{item.overview}</p>
                             </CardContent>
                         </Card>
                     ))

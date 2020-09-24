@@ -1,20 +1,31 @@
 .list-search-container {
     flex-direction: row;
     width: 70vw;
-    
+    min-width: 0;
+
     .search-card {
         display: flex;
+        height: 200px;
         flex-direction: row;
         margin: 10px;
 
-        .search-result-type{
+        .search-result-type {
             text-transform: capitalize;
         }
 
         .search-img {
             width: 150px;
         }
-        
+
+        .search-overview {
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            width: 100%;
+        }
+
     }
 
 }

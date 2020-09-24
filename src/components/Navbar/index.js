@@ -8,6 +8,8 @@ import { useToggle } from '../../hooks';
 import { MenuSelector } from '../MenuItem';
 import { Sidebar } from '../Sidebar';
 
+import './styles.scss';
+
 const linksMovie = [
 	{ to: "/", name: "Popular" },
 	{ to: "/", name: "Proximamente" },

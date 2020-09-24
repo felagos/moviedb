@@ -3,6 +3,8 @@ import { Menu, MenuItem } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 
+import './styles.scss';
+
 export const MenuSelector = ({ anchorEl, open, handleClose, links }) => {
 	return (
 		<Menu

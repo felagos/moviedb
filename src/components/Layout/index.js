@@ -1,16 +1,18 @@
-import { Container } from '@material-ui/core'
-import React from 'react'
-import { Navbar } from '../Navbar'
+import React from 'react';
+import { Container } from '@material-ui/core';
+import { Navbar } from '../Navbar';
+
+import './styles.scss';
 
 export const Layout = React.memo(
 	({ children }) => {
 		return (
 			<>
 				<Navbar />
-				<Container className="home-container">
+				<Container className="layout-container">
 					{children}
 				</Container>
-				<div className="home-footer"></div>
+				<div className="layout-footer"></div>
 			</>
 		)
 	}

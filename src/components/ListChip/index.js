@@ -1,6 +1,8 @@
 import React from 'react';
 import { Chip } from '@material-ui/core';
 
+import './styles.scss';
+
 export const ListChip = React.memo(
 	({ chips }) => {
 		return (

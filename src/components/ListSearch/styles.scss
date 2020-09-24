@@ -12,6 +12,12 @@
     }
 }
 
+@media (max-width: 630px) {
+    .list-search-container {
+        width: 100% !important;
+    }
+}
+
 .list-search-container {
     flex-direction: row;
     width: 70vw;

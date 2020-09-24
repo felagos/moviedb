@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card, CardContent } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { getFullDate } from '../../helpers/dates';
 import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../redux/actions/search';
 import { useHistory } from 'react-router-dom';
@@ -54,8 +53,4 @@ export const ListSearch = () => {
             </div>
         </>
     )
-}
-
-ListSearch.propType = {
-    handleLoadMore: PropTypes.func.isRequired
 }

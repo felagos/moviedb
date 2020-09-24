@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MediaCard } from '../MediaCard';
 
+import './styles.scss';
+
 export const ListMedia = React.memo(
 	({ data, title, type }) => {
 

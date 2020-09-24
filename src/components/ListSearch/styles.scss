@@ -1,0 +1,20 @@
+.list-search-container {
+    flex-direction: row;
+    width: 70vw;
+    
+    .search-card {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+
+        .search-result-type{
+            text-transform: capitalize;
+        }
+
+        .search-img {
+            width: 150px;
+        }
+        
+    }
+
+}

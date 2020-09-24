@@ -15,6 +15,12 @@ export const Search = () => {
 		history.push(url);
 	}
 
+	const handleKeyUp = (evt) => {
+		if(evt.key === "Enter") {
+			handleSearch();
+		}
+	}
+
 	return (
 		<div className="search-container" style={{ backgroundImage: 'url("https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/5GISMqlRXMEyBrgEqyvhaMMuQmJ.jpg")' }}>
 			<div className="search-title">
@@ -29,6 +35,7 @@ export const Search = () => {
 					name="search"
 					value={values.search}
 					onChange={handleChange}
+					onKeyUp={handleKeyUp}
 					placeholder="Buscar una película, programa de televisión, persona ......"
 					endAdornment={
 						<InputAdornment position="end">

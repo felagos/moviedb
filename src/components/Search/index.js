@@ -5,6 +5,8 @@ import { useForm } from '../../hooks';
 import { useHistory } from 'react-router-dom';
 import { slug } from '../../helpers';
 
+import './styles.scss';
+
 export const Search = () => {
 	const history = useHistory();
 	const [values, handleChange] = useForm({ search: "" });

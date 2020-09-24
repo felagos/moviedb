@@ -6,3 +6,4 @@ export * from './Search';
 export * from './HomeSections';
 export * from './LoadingLayout';
 export * from './ListSearch';
+export * from './SearchInfo';

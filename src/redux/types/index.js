@@ -14,5 +14,6 @@ export const MOVIE_TYPES = {
 };
 
 export const SEARCH_TYPES = {
-	DO_SEARCH: "DO_SEARCH"
+	DO_SEARCH: "DO_SEARCH",
+	DO_SEARCH_MORE: "DO_SEARCH_MORE"
 }

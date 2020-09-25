@@ -50,13 +50,13 @@ export const SearchInfo = () => {
             <div className="search-info-container-mobile">
                 <List className="search-info-inline">
                     <ListItem className="search-info-item" button onClick={handleFilterType("all")}>
-                        <span className="search-info-type">Todos - {totals.totalMovies + totals.totalTvShows}</span>
+                        <span className="search-info-type">Todos}</span>
                     </ListItem>
                     <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
-                        <span className="search-info-type">Peliculas - {totals.totalMovies}</span>
+                        <span className="search-info-type">Peliculas</span>
                     </ListItem>
                     <ListItem className="search-info-item"button onClick={handleFilterType("type")}>
-                        <span className="search-info-type">TV Shows - {totals.totalTvShows}</span>
+                        <span className="search-info-type">TV Shows</span>
                     </ListItem>
                 </List>
             </div>

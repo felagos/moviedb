@@ -13,8 +13,6 @@
     }
 
     .search-info-item {
-        width: 40% !important;
-
         font-weight: normal !important;
     }
 }
@@ -24,7 +22,8 @@
 }
 
 .search-info-inline {
-    display: -webkit-inline-box;
+    display: flex;
+    width: 100%;
 }
 
 .search-info-container {

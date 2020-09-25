@@ -4,6 +4,27 @@
     .search-info-container {
         display: none !important;
     }
+
+    .search-info-container-mobile {
+        display: flex !important;
+        padding-left: 10px;
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .search-info-item {
+        width: 40% !important;
+
+        font-weight: normal !important;
+    }
+}
+
+.search-info-container-mobile {
+    display: none;
+}
+
+.search-info-inline {
+    display: -webkit-inline-box;
 }
 
 .search-info-container {

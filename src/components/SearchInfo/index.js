@@ -50,7 +50,7 @@ export const SearchInfo = () => {
             <div className="search-info-container-mobile">
                 <List className="search-info-inline">
                     <ListItem className="search-info-item" button onClick={handleFilterType("all")}>
-                        <span className="search-info-type">Todos}</span>
+                        <span className="search-info-type">Todos</span>
                     </ListItem>
                     <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
                         <span className="search-info-type">Peliculas</span>

@@ -30,7 +30,7 @@ export const ListSearch = () => {
 
     const goToDetail = (item) => () => {
         const typeMedia = item.media_type || type;
-        const url = `/${type}/${slug(item.id + "-" + item.original_title)}`;
+        const url = `/${typeMedia}/${slug(item.id + "-" + (item.title || item.original_name))}`;
         history.push(url, { id: item.id, type: typeMedia });
     }
 

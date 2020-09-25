@@ -9,7 +9,8 @@ export const MediaCard = React.memo(
 
 		const goToDetail = () => {
 			const type = item.seasons ? "tv" : "movie";
-			const url = `/${type}/${slug(item.id + "-" + item.original_title)}`;
+			console.log(item);
+			const url = `/${type}/${slug(item.id + "-" + (item.title || item.original_name))}`;
 			history.push(url, { id: item.id, type });
 		};
 

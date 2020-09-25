@@ -14,7 +14,7 @@ export const SearchInfo = () => {
     useEffect(() => {
         const totals = countMedias(search.results, type);
         setTotals(totals);
-    }, [search.results]);
+    }, [search.results, type]);
 
     const handleFilterType = (type) => () => {
         if (type === "all") {

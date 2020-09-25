@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chip, List, ListItem, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../redux/actions/search';
+import { countMedias } from '../../helpers';
 
 import './styles.scss';
 
 export const SearchInfo = () => {
     const dispatch = useDispatch();
-    const { search, query } = useSelector(state => state.search);
+    const [totals, setTotals] = useState({ totalMovies: 0, totalTvShows: 0 });
+    const { search, query, type } = useSelector(state => state.search);
 
-    const totals = search.results.reduce((acc, el) => {
-        if (el.media_type === "movie") acc.totalMovies += 1;
-        if (el.media_type === "tv") acc.totalTvShows += 1;
-        return acc;
-    }, { totalMovies: 0, totalTvShows: 0 });
+    useEffect(() => {
+        const totals = countMedias(search.results, type);
+        setTotals(totals);
+    }, [search.results]);
 
     const handleFilterType = (type) => () => {
         if (type === "all") {
@@ -22,7 +23,7 @@ export const SearchInfo = () => {
         if (type === "movie") {
             dispatch(loadSearchMovie(query));
         }
-        if (type === "type") {
+        if (type === "tv") {
             dispatch(loadSearchTvShow(query));
         }
     }
@@ -41,7 +42,7 @@ export const SearchInfo = () => {
                         <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
                             <span className="search-info-type">Peliculas</span> <Chip className="search-info-type-total" label={totals.totalMovies} />
                         </ListItem>
-                        <ListItem button className="search-info-item" onClick={handleFilterType("type")}>
+                        <ListItem button className="search-info-item" onClick={handleFilterType("tv")}>
                             <span className="search-info-type">TV Shows</span> <Chip className="search-info-type-total" label={totals.totalTvShows} />
                         </ListItem>
                     </List>
@@ -55,7 +56,7 @@ export const SearchInfo = () => {
                     <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
                         <span className="search-info-type">Peliculas</span>
                     </ListItem>
-                    <ListItem className="search-info-item"button onClick={handleFilterType("type")}>
+                    <ListItem className="search-info-item" button onClick={handleFilterType("tv")}>
                         <span className="search-info-type">TV Shows</span>
                     </ListItem>
                 </List>

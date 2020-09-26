@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../redux';
-import { HomeSections, Search } from '../components';
+import { loadPopularMovies, loadTrendingMovies, loadUpcomingMovies } from '../../redux';
+import {Search} from './components/Search';
+import { Sections } from './components/Sections';
 
 const HomePage = () => {
 
@@ -17,7 +18,7 @@ const HomePage = () => {
 	return (
 		<>
 			<Search />
-			<HomeSections />
+			<Sections />
 		</>
 	)
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, Card, CardContent } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFullDate } from '../../helpers/dates';
-import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../redux/actions/search';
 import { useHistory } from 'react-router-dom';
-import { slug } from '../../helpers';
+import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../../../redux/actions/search';
+import { slug, getFullDate } from '../../../../helpers';
 
 import './styles.scss';
 

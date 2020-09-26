@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Layout, LoadingLayout } from '../components';
 
 const HomePage = React.lazy(() => import("../pages/HomePage"));
-const MediaDetailPage = React.lazy(() => import("../pages/MediaDetailPage"));
+const DetailPage = React.lazy(() => import("../pages/DetailPage"));
 const SearchPage = React.lazy(() => import("../pages/SearchPage"));
 
 export const AppRouter = () => {
@@ -13,7 +13,7 @@ export const AppRouter = () => {
 				<Layout>
 					<Switch>
 						<Route exact path="/" component={HomePage} />
-						<Route exact path="/:type/:id/" component={MediaDetailPage} />
+						<Route exact path="/:type/:id/" component={DetailPage} />
 						<Route exact path="/search" component={SearchPage} />
 					</Switch>
 				</Layout>

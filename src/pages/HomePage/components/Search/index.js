@@ -1,9 +1,9 @@
 import React from 'react';
 import { IconButton, InputAdornment, OutlinedInput } from '@material-ui/core';
 import { Search as SearchIcon } from '@material-ui/icons';
-import { useForm } from '../../hooks';
 import { useHistory } from 'react-router-dom';
-import { slug } from '../../helpers';
+import { useForm } from '../../../../hooks';
+import { slug } from '../../../../helpers';
 
 import './styles.scss';
 

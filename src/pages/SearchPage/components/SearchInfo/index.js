@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Chip, List, ListItem, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../redux/actions/search';
-import { countMedias } from '../../helpers';
+import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../../../redux/actions/search';
+import { countMedias } from '../../../../helpers';
 
 import './styles.scss';
 

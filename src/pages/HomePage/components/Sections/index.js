@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ListMedia } from '../ListMedia';
+import { ListMedia } from '../../../../components/ListMedia';
 
 import './styles.scss';
 
-export const HomeSections = () => {
+export const Sections = () => {
 
 	const { popular, upcoming, trending } = useSelector(state => state.movie);
 

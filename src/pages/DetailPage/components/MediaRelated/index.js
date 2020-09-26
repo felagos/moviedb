@@ -1,18 +1,19 @@
 import React from 'react';
 import { Divider } from '@material-ui/core';
 import { ListMedia } from '../../../../components';
+import { RelatedContainer, RelatedSection } from './styles';
 
 export const MediaRelated = ({ recommendations, related }) => {
     return (
-        <div className="media-movie-videos">
-            <div className="media-movie-videos-section">
+        <RelatedContainer>
+            <RelatedSection>
                 <Divider />
                 <ListMedia title="Recomendados" data={recommendations} type="movies" />
-            </div>
-            <div className="media-movie-videos-section">
+            </RelatedSection>
+            <RelatedSection>
                 <Divider />
                 <ListMedia title="Medias" data={related} type="iframes" />
-            </div>
-        </div>
+            </RelatedSection>
+        </RelatedContainer>
     )
 }

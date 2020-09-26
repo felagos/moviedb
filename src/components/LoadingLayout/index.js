@@ -1,13 +1,12 @@
 import React from 'react';
 import { CircularProgress } from '@material-ui/core';
-
-import "./styles.scss";
+import { Loading, Title } from './styles';
 
 export const LoadingLayout = () => {
 	return (
-		<div className="loading-container">
+		<Loading>
 			<CircularProgress className="loading-circle" size={80} />
-			<h1 className="loading-text">Cargando página, por favor espere ...</h1>
-		</div>
+			<Title>Cargando página, por favor espere ...</Title>
+		</Loading>
 	)
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MediaCard } from '../MediaCard';
-
-import './styles.scss';
+import { MediaList } from './styles';
 
 export const ListMedia = React.memo(
 	({ data, title, type }) => {
@@ -17,9 +16,9 @@ export const ListMedia = React.memo(
 		return (
 			<>
 				<h2>{title}</h2>
-				<div className="media-list-container">
+				<MediaList>
 					{cards.length === 0 ? <h3>No se encontraron resultados</h3> : cards}
-				</div>
+				</MediaList>
 			</>
 
 		)

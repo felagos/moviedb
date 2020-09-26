@@ -1,17 +1,16 @@
 import React from 'react';
-import { Drawer, ListItem, Typography, List, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Drawer, ListItem, List, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { DrawerContainer, Title, ExpandIcon, AccordionContainer } from './styles';
 
-import './styles.scss';
 
 export const Sidebar = ({ open, handleClose }) => {
 	return (
 		<Drawer anchor="left" open={open} onClose={handleClose}>
-			<div className="drawer-container">
-				<Accordion className="drawer-accordion">
-					<AccordionSummary expandIcon={<ExpandMoreIcon className="accordion-icon" />}>
-						<Typography className="accordion-title">Películas</Typography>
+			<DrawerContainer>
+				<AccordionContainer>
+					<AccordionSummary expandIcon={<ExpandIcon />}>
+						<Title>Películas</Title>
 					</AccordionSummary>
 					<AccordionDetails>
 						<List>
@@ -26,11 +25,11 @@ export const Sidebar = ({ open, handleClose }) => {
 							</ListItem>
 						</List>
 					</AccordionDetails>
-				</Accordion>
+				</AccordionContainer>
 
-				<Accordion className="drawer-accordion">
-					<AccordionSummary expandIcon={<ExpandMoreIcon className="accordion-icon" />}>
-						<Typography className="accordion-title">TV Show</Typography>
+				<AccordionContainer>
+					<AccordionSummary expandIcon={<ExpandIcon />}>
+						<Title>TV Show</Title>
 					</AccordionSummary>
 					<AccordionDetails>
 						<List>
@@ -45,11 +44,11 @@ export const Sidebar = ({ open, handleClose }) => {
 							</ListItem>
 						</List>
 					</AccordionDetails>
-				</Accordion>
+				</AccordionContainer>
 
-				<Accordion className="drawer-accordion">
-					<AccordionSummary expandIcon={<ExpandMoreIcon className="accordion-icon" />}>
-						<Typography className="accordion-title">Personas</Typography>
+				<AccordionContainer>
+					<AccordionSummary expandIcon={<ExpandIcon />}>
+						<Title>Personas</Title>
 					</AccordionSummary>
 					<AccordionDetails>
 						<List>
@@ -58,8 +57,8 @@ export const Sidebar = ({ open, handleClose }) => {
 							</ListItem>
 						</List>
 					</AccordionDetails>
-				</Accordion>
-			</div>
+				</AccordionContainer>
+			</DrawerContainer>
 		</Drawer>
 	)
 }

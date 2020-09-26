@@ -6,6 +6,7 @@ import { getYear } from '../../helpers';
 import { MetaInfo } from './components/MetaInfo';
 import { Poster } from './components/Poster';
 import { MediaRelated } from './components/MediaRelated';
+import { DetailContainer, MediaSections } from './styles';
 
 const DetailPage = () => {
 	const { state: { id, type } } = useLocation();
@@ -33,13 +34,13 @@ const DetailPage = () => {
 	if (item === null) return null;
 
 	return (
-		<div className="media-movie-container">
+		<DetailContainer>
 			<Poster poster={item.poster_path} title={item.title} release={item.release_date} genres={item.genres} votes={item.vote_average} overview={item.overview} />
-			<div className="media-movie-sections">
+			<MediaSections>
 				<MediaRelated recommendations={recommendations} related={related} />
 				<MetaInfo title={item.original_title} status={item.status} languages={item.spoken_languages} keywords={keywords} /> 
-			</div>
-		</div>
+			</MediaSections>
+		</DetailContainer>
 	)
 }
 

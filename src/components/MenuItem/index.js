@@ -1,9 +1,7 @@
 import React from 'react';
-import { Menu, MenuItem } from '@material-ui/core'
-import { Link } from 'react-router-dom';
+import { Menu, MenuItem } from '@material-ui/core';
 import PropType from 'prop-types';
-
-import './styles.scss';
+import { MenuLink } from './styles';
 
 export const MenuSelector = ({ anchorEl, open, handleClose, links }) => {
 	return (
@@ -16,7 +14,7 @@ export const MenuSelector = ({ anchorEl, open, handleClose, links }) => {
 			{
 				links.map((link, idx) => (
 					<MenuItem key={idx} onClick={handleClose}>
-						<Link className="navbar-link" to={link.to}>{link.name}</Link>
+						<MenuLink to={link.to}>{link.name}</MenuLink>
 					</MenuItem>
 				))
 			}

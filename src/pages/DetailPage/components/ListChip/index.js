@@ -1,18 +1,16 @@
 import React from 'react';
-import { Chip } from '@material-ui/core';
-
-import './styles.scss';
+import { ChipContainer, ChipItem } from './styles';
 
 export const ListChip = React.memo(
 	({ chips }) => {
 		return (
-			<div className="chip-container">
+			<ChipContainer>
 				{
 					chips.map((chip, idx) => (
-						<Chip className="chip-item" key={idx} label={chip.name} />
+						<ChipItem key={idx} label={chip.name} />
 					))
 				}
-			</div>
+			</ChipContainer>
 		)
 	}
 );

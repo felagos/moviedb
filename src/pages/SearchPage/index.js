@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { SearchInfo } from './components/SearchInfo';
 import { ListSearch } from './components/ListSearch';
 import { loadSearch } from '../../redux';
+import { ResultContainer } from './styles';
 
 export const SearchPage = () => {
 	const dispatch = useDispatch();
@@ -15,10 +16,10 @@ export const SearchPage = () => {
 	}, [dispatch, params]);
 
 	return (
-		<div className="search-result-container">
+		<ResultContainer>
 			<SearchInfo />
 			<ListSearch />
-		</div>
+		</ResultContainer>
 	)
 }
 

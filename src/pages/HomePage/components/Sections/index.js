@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { ListMedia } from '../../../../components/ListMedia';
+import { HomeSection } from './styles';
 
-import './styles.scss';
 
 export const Sections = () => {
 
@@ -10,15 +10,15 @@ export const Sections = () => {
 
 	return (
 		<>
-			<div className="home-section">
+			<HomeSection>
 				<ListMedia title="Popular" data={popular} type="movies" />
-			</div>
-			<div className="home-section">
+			</HomeSection>
+			<HomeSection>
 				<ListMedia title="Proximamente" data={upcoming} type="movies" />
-			</div>
-			<div className="home-section">
+			</HomeSection>
+			<HomeSection>
 				<ListMedia title="Tendencias" data={trending} type="movies" />
-			</div>
+			</HomeSection>
 		</>
 	)
 }

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Button, Card, CardContent } from '@material-ui/core';
+import { Button, CardContent } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../../../redux/actions/search';
 import { slug, getFullDate } from '../../../../helpers';
-
-import './styles.scss';
+import { ListContainer, CardResult, Image, Overview } from './styles';
 
 export const ListSearch = () => {
     const dispatch = useDispatch();
@@ -35,21 +34,21 @@ export const ListSearch = () => {
 
     return (
         <>
-            <div className="list-search-container">
+            <ListContainer>
                 {
                     search.results.map((item, idx) => (
-                        <Card className="search-card" key={idx} onClick={goToDetail(item)}>
-                            {(item.poster_path || item.backdrop_path) && <img className="search-img" src={`https://image.tmdb.org/t/p/original${item.poster_path || item.backdrop_path}`} alt={item.title} />}
+                        <CardResult key={idx} onClick={goToDetail(item)}>
+                            {(item.poster_path || item.backdrop_path) && <Image src={`https://image.tmdb.org/t/p/original${item.poster_path || item.backdrop_path}`} alt={item.title} />}
                             <CardContent>
-                                <h4>{item.title || item.original_name} {item.media_type && <span className="search-result-type"> - ({item.media_type})</span>}</h4>
+                                <h4>{item.title || item.original_name} {item.media_type && <span> - ({item.media_type})</span>}</h4>
                                 <span>{getFullDate(item.release_date || item.first_air_date)}</span>
-                                <p className="search-overview">{item.overview}</p>
+                                <Overview>{item.overview}</Overview>
                             </CardContent>
-                        </Card>
+                        </CardResult>
                     ))
                 }
                 <Button variant="contained" fullWidth disabled={!hasMoreData} onClick={handleLoadMore}>Cargar más</Button>
-            </div>
+            </ListContainer>
         </>
     )
 }

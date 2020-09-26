@@ -1,14 +1,12 @@
 import React, { useRef } from 'react';
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
+import { Button, Toolbar, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { Link } from 'react-router-dom';
 import { useToggle } from '../../hooks';
 import { MenuSelector } from '../MenuItem';
 import { Sidebar } from '../Sidebar';
-
-import './styles.scss';
+import { Nav, ButtonMenu, HeaderLink, LinkContainer, ButtonAuth } from './styles';
 
 const linksMovie = [
 	{ to: "/", name: "Popular" },
@@ -37,17 +35,17 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<AppBar className="navbar-header" position="static">
+			<Nav position="static">
 				<Toolbar>
-					<IconButton className="navbar-drawer" onClick={handleOpenDrawer}>
+					<ButtonMenu onClick={handleOpenDrawer}>
 						<MenuIcon />
-					</IconButton>
-					<Link className="navbar-link-home" to="/">
+					</ButtonMenu>
+					<HeaderLink to="/">
 						<Typography variant="h6">
 							Movie App
 						</Typography>
-					</Link>
-					<div className="navbar-container-link">
+					</HeaderLink>
+					<LinkContainer>
 						<Button ref={btnMovie} onClick={handleOpenMovie} variant="outlined">Películas</Button>
 						<MenuSelector anchorEl={btnMovie.current} open={openMovie} handleClose={handleCloseMovie} links={linksMovie} />
 
@@ -56,15 +54,14 @@ export const Navbar = () => {
 
 						<Button ref={btnPeople} variant="outlined" onClick={handleOpenPeople}>Personas</Button>
 						<MenuSelector anchorEl={btnPeople.current} open={openPeople} handleClose={handleClosePeople} links={linksPeople} />
-
-					</div>
-					<div className="navbar-btn-auth">
+					</LinkContainer>
+					<ButtonAuth>
 						<IconButton>
 							<AccountCircle />
 						</IconButton>
-					</div>
+					</ButtonAuth>
 				</Toolbar>
-			</AppBar>
+			</Nav>
 			<Sidebar open={openDrawer} handleClose={handleCloseDrawer} />
 		</>
 	)

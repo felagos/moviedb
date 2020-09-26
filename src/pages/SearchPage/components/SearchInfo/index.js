@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Chip, List, ListItem, Paper } from '@material-ui/core';
+import { List, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadSearch, loadSearchMovie, loadSearchTvShow } from '../../../../redux/actions/search';
 import { countMedias } from '../../../../helpers';
-
-import './styles.scss';
+import { InfoContainer, InfoHeader, Item, InfoType, Total, InfoContainerResponsive, ListInline } from './styles';
 
 export const SearchInfo = () => {
     const dispatch = useDispatch();
@@ -30,37 +29,37 @@ export const SearchInfo = () => {
 
     return (
         <>
-            <div className="search-info-container">
-                <div className="search-info-header">
+            <InfoContainer>
+                <InfoHeader>
                     <h4>Resultados de la búsqueda</h4>
-                </div>
+                </InfoHeader>
                 <Paper elevation={1}>
                     <List>
-                        <ListItem className="search-info-item" button onClick={handleFilterType("all")}>
-                            <span className="search-info-type">Todos</span> <Chip className="search-info-type-total" label={totals.totalMovies + totals.totalTvShows} />
-                        </ListItem>
-                        <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
-                            <span className="search-info-type">Peliculas</span> <Chip className="search-info-type-total" label={totals.totalMovies} />
-                        </ListItem>
-                        <ListItem button className="search-info-item" onClick={handleFilterType("tv")}>
-                            <span className="search-info-type">TV Shows</span> <Chip className="search-info-type-total" label={totals.totalTvShows} />
-                        </ListItem>
+                        <Item button onClick={handleFilterType("all")}>
+                            <InfoType>Todos</InfoType> <Total label={totals.totalMovies + totals.totalTvShows} />
+                        </Item>
+                        <Item button onClick={handleFilterType("movie")}>
+                            <InfoType>Peliculas</InfoType> <Total label={totals.totalMovies} />
+                        </Item>
+                        <Item button onClick={handleFilterType("tv")}>
+                            <InfoType>TV Shows</InfoType> <Total label={totals.totalTvShows} />
+                        </Item>
                     </List>
                 </Paper>
-            </div>
-            <div className="search-info-container-mobile">
-                <List className="search-info-inline">
-                    <ListItem className="search-info-item" button onClick={handleFilterType("all")}>
-                        <span className="search-info-type">Todos</span>
-                    </ListItem>
-                    <ListItem className="search-info-item" button onClick={handleFilterType("movie")}>
-                        <span className="search-info-type">Peliculas</span>
-                    </ListItem>
-                    <ListItem className="search-info-item" button onClick={handleFilterType("tv")}>
-                        <span className="search-info-type">TV Shows</span>
-                    </ListItem>
-                </List>
-            </div>
+            </InfoContainer>
+            <InfoContainerResponsive>
+                <ListInline>
+                    <Item button onClick={handleFilterType("all")}>
+                        <InfoType>Todos</InfoType>
+                    </Item>
+                    <Item button onClick={handleFilterType("movie")}>
+                        <InfoType>Peliculas</InfoType>
+                    </Item>
+                    <Item button onClick={handleFilterType("tv")}>
+                        <InfoType>TV Shows</InfoType>
+                    </Item>
+                </ListInline>
+            </InfoContainerResponsive>
         </>
     )
 }

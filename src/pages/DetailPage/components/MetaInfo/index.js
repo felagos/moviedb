@@ -1,31 +1,32 @@
 import React from 'react';
 import { ListChip } from '../ListChip';
+import { Info, InfoSection, Title } from './styles';
 
 export const MetaInfo = ({ title, status, languages, keywords }) => {
     return (
-        <div className="media-movie-info">
-            <div className="media-movie-info-part">
-                <span className="media-title">Título original</span>
+        <Info>
+            <InfoSection>
+                <Title>Título original</Title>
                 <span>{title}</span>
-            </div>
+            </InfoSection>
 
-            <div className="media-movie-info-part">
-                <span className="media-title">Estado</span>
+            <InfoSection>
+                <Title>Estado</Title>
                 <span>{status}</span>
-            </div>
+            </InfoSection>
 
-            <div className="media-movie-info-part">
-                <span className="media-title">Idioma original</span>
+            <InfoSection>
+                <Title>Idioma original</Title>
                 <span>{languages.map(language => language.name).join(" - ")}</span>
-            </div>
+            </InfoSection>
 
             {
                 keywords.length !== 0 &&
-                <div className="media-movie-info-part">
-                    <span className="media-title">Palabras claves</span>
+                <InfoSection>
+                    <Title>Palabras claves</Title>
                     <ListChip chips={keywords} />
-                </div>
+                </InfoSection>
             }
-        </div>
+        </Info>
     )
 }

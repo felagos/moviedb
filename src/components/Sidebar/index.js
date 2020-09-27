@@ -6,7 +6,7 @@ import { DrawerContainer, Title, ExpandIcon, AccordionContainer } from './styles
 
 export const Sidebar = ({ open, handleClose }) => {
 	return (
-		<Drawer anchor="left" open={open} onClose={handleClose}>
+		<Drawer data-testid="drawer" anchor="left" open={open} onClose={handleClose}>
 			<DrawerContainer>
 				<AccordionContainer>
 					<AccordionSummary expandIcon={<ExpandIcon />}>

@@ -28,16 +28,15 @@ export const Navbar = () => {
 	const [openPeople, handleOpenPeople, handleClosePeople] = useToggle(false);
 	const [openDrawer, handleOpenDrawer, handleCloseDrawer] = useToggle(false);
 
-
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);
 	const btnPeople = useRef(null);
 
 	return (
 		<>
-			<Nav position="static">
+			<Nav data-testid="navbar" position="static">
 				<Toolbar>
-					<ButtonMenu onClick={handleOpenDrawer}>
+					<ButtonMenu data-testid="btnDrawer" onClick={handleOpenDrawer}>
 						<MenuIcon />
 					</ButtonMenu>
 					<HeaderLink to="/">

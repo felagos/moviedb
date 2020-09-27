@@ -7,10 +7,10 @@ export const Layout = React.memo(
 		return (
 			<>
 				<Navbar />
-				<Main>
+				<Main data-testid="main">
 					{children}
 				</Main>
-				<Footer />
+				<Footer data-testid="footer" />
 			</>
 		)
 	}

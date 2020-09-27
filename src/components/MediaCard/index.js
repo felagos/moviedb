@@ -15,7 +15,7 @@ export const MediaCard = React.memo(
 		};
 
 		return (
-			<Card onClick={goToDetail}>
+			<Card data-testid="card-media" onClick={goToDetail}>
 				<Image loading="lazy" src={`https://image.tmdb.org/t/p/original/${item.poster_path}`} alt={item.original_title} />
 				<CardContent>
 					<Title>{item.title}</Title>

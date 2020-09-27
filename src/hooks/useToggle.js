@@ -3,13 +3,13 @@ import { useState } from "react";
 export const useToggle = (value = false) => {
 	const [open, setOpen] = useState(value);
 
-	const handleOpenMenu = () => {
+	const handleOpen = () => {
 		setOpen(true);
 	}
 
-	const handleCloseMenu = () => {
+	const handleClose = () => {
 		setOpen(false);
 	}
 
-	return [open, handleOpenMenu, handleCloseMenu];
+	return [open, handleOpen, handleClose];
 }

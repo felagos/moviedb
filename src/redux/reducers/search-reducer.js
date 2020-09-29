@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { SEARCH_TYPES } from '../types';
 
 const initialState = {

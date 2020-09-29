@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { MOVIE_TYPES } from '../types';
 
 const inititalState = {

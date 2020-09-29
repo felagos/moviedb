@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export const theme = {
     colors: {
         white: "white",

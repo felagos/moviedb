@@ -9,18 +9,10 @@ branches:
 cache:
   directories:
   - node_modules
-notifications:
-  email:
-    recipients:
-    - felagossanchez@gmail.com
-    on_success: always
-    on_failure: always
 jobs:
   include:
   - stage: test
     script: npm run test
-  - stage: build
-    script: npm run build
 deploy:
   provider: heroku
   skip-clean: true

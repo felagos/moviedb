@@ -9,7 +9,7 @@ import { MediaRelated } from './components/MediaRelated';
 import { DetailContainer, MediaSections } from './styles';
 
 const DetailPage = () => {
-	const { id: slug, type } = useParams();
+	const { id: slug } = useParams();
 	const id = slug.split("-")[0];
 
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);

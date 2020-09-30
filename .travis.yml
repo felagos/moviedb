@@ -1,0 +1,31 @@
+languague: node_js
+node_js: 
+  - "14"
+
+git:
+  depth: 3
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: install
+      script: "echo '#### Instalando dependencias ####'"
+      script: npm install
+    - stage: test
+      script: "echo '#### Ejecutando pruebas ####'"
+      script: npm run test
+    - stage: build
+      script: "echo '#### Contruyendo app ####'"
+      script: npm run build
+
+deploy:
+  provider: heroku
+  on: 
+    repo: felagos/moviedb

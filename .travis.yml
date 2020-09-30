@@ -15,9 +15,6 @@ cache:
 
 jobs:
   include:
-    - stage: install
-      script: "echo '#### Instalando dependencias ####'"
-      script: npm install
     - stage: test
       script: "echo '#### Ejecutando pruebas ####'"
       script: npm run test
@@ -27,5 +24,7 @@ jobs:
 
 deploy:
   provider: heroku
+  api_key:
+    secure: $HEROKU_TOKEN
   on: 
     repo: felagos/moviedb

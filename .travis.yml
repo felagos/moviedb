@@ -30,11 +30,11 @@ jobs:
       script: npm run build
 
 deploy:
-  provider: heroku
+  provide: heroku
   skip-clean: true
   kepp-history: true
   api_key:
-    secure: $HEROKU_TOKEN
+    secure: $HEROKU_TOKEN 
   app: movie-db-web
   on: 
     repo: felagos/moviedb

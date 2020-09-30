@@ -12,7 +12,6 @@ export const loadSearch = (query, page = 1, withMore = false) => {
 export const loadSearchMovie = (query, page = 1, withMore = false) => {
 	return async (dispatch) => {
 		const response = await doSearchMovie(query, page);
-		console.log("response", response);
 		const type = withMore ? SEARCH_TYPES.DO_SEARCH_MORE : SEARCH_TYPES.DO_SEARCH;
 		dispatch({ type, payload: { response, query, type: "movie" } });
 	}

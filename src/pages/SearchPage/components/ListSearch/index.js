@@ -37,7 +37,7 @@ export const ListSearch = () => {
             <ListContainer>
                 {
                     search.results.map((item, idx) => (
-                        <CardResult key={idx} onClick={goToDetail(item)}>
+                        <CardResult data-testid="card-search" key={idx} onClick={goToDetail(item)}>
                             {(item.poster_path || item.backdrop_path) && <Image src={`https://image.tmdb.org/t/p/original${item.poster_path || item.backdrop_path}`} alt={item.title} />}
                             <CardContent>
                                 <h4>{item.title || item.original_name} {item.media_type && <span> - ({item.media_type})</span>}</h4>

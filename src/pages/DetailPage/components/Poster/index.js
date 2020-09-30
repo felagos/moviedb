@@ -5,7 +5,7 @@ import { Cover, MediaPoster, Description, Title, Overview } from './styles';
 
 export const Poster = ({ poster, title, genres, votes, overview, release }) => {
     return (
-        <Cover>
+        <Cover data-testid="post-app">
             <MediaPoster>
                 <img src={`https://image.tmdb.org/t/p/original${poster}`} alt="" />
                 <Description>

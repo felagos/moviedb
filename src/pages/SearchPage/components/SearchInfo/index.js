@@ -35,13 +35,13 @@ export const SearchInfo = () => {
                 </InfoHeader>
                 <Paper elevation={1}>
                     <List>
-                        <Item button onClick={handleFilterType("all")}>
+                        <Item data-testid="search-all" button onClick={handleFilterType("all")}>
                             <InfoType>Todos</InfoType> <Total label={totals.totalMovies + totals.totalTvShows} />
                         </Item>
-                        <Item button onClick={handleFilterType("movie")}>
+                        <Item data-testid="search-movie" button onClick={handleFilterType("movie")}>
                             <InfoType>Peliculas</InfoType> <Total label={totals.totalMovies} />
                         </Item>
-                        <Item button onClick={handleFilterType("tv")}>
+                        <Item data-testid="search-tv" button onClick={handleFilterType("tv")}>
                             <InfoType>TV Shows</InfoType> <Total label={totals.totalTvShows} />
                         </Item>
                     </List>

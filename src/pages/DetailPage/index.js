@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../../redux';
 import { getYear } from '../../helpers';
 import { MetaInfo } from './components/MetaInfo';
@@ -9,9 +9,11 @@ import { MediaRelated } from './components/MediaRelated';
 import { DetailContainer, MediaSections } from './styles';
 
 const DetailPage = () => {
-	const { state: { id, type } } = useLocation();
-	const dispatch = useDispatch();
+	const { id: slug, type } = useParams();
+	const id = slug.split("-")[0];
+
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(loadDetailMovie(id));
@@ -38,7 +40,7 @@ const DetailPage = () => {
 			<Poster poster={item.poster_path} title={item.title} release={item.release_date} genres={item.genres} votes={item.vote_average} overview={item.overview} />
 			<MediaSections>
 				<MediaRelated recommendations={recommendations} related={related} />
-				<MetaInfo title={item.original_title} status={item.status} languages={item.spoken_languages} keywords={keywords} /> 
+				<MetaInfo title={item.original_title} status={item.status} languages={item.spoken_languages} keywords={keywords} />
 			</MediaSections>
 		</DetailContainer>
 	)

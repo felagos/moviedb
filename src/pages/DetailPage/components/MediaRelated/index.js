@@ -6,14 +6,20 @@ import { RelatedContainer, RelatedSection } from './styles';
 export const MediaRelated = ({ recommendations, related }) => {
     return (
         <RelatedContainer>
-            <RelatedSection>
-                <Divider />
-                <ListMedia title="Recomendados" data={recommendations} type="movies" />
-            </RelatedSection>
-            <RelatedSection>
-                <Divider />
-                <ListMedia title="Medias" data={related} type="iframes" />
-            </RelatedSection>
+            {
+                recommendations.length !== 0 &&
+                <RelatedSection>
+                    <Divider />
+                    <ListMedia title="Recomendados" data={recommendations} type="movies" />
+                </RelatedSection>
+            }
+            {
+                related.length !== 0 &&
+                <RelatedSection>
+                    <Divider />
+                    <ListMedia title="Trailers" data={related} type="iframes" />
+                </RelatedSection>
+            }
         </RelatedContainer>
     )
 }

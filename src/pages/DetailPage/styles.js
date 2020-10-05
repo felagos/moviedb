@@ -8,6 +8,10 @@ export const DetailContainer = styled.div`
 `;
 
 export const MediaSections = styled.div`
+    @media (max-width: 1024px) {
+        padding-left: 10px !important;
+    }
+    
     @media (max-width: 640px) {
         padding: 10px !important;
     }

@@ -6,6 +6,7 @@ const HomePage = React.lazy(() => import("../pages/HomePage"));
 const DetailPage = React.lazy(() => import("../pages/DetailPage"));
 const SearchPage = React.lazy(() => import("../pages/SearchPage"));
 const NotFound = React.lazy(() => import("../pages/NotFound"));
+const MoviePage = React.lazy(() => import("../pages/MoviePage"));
 
 export const AppRouter = () => {
 	return (
@@ -14,8 +15,9 @@ export const AppRouter = () => {
 				<Layout>
 					<Switch>
 						<Route exact path="/" component={HomePage} />
-						<Route exact path="/:type/:id/" component={DetailPage} />
+						<Route exact path="/detail/:type/:id/" component={DetailPage} />
 						<Route exact path="/search" component={SearchPage} />
+						<Route exact path="/movie/:type" component={MoviePage} />
 						<Route component={NotFound} />
 					</Switch>
 				</Layout>

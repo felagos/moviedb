@@ -8,6 +8,10 @@ export const Image = styled.img`
     height: 225px;
     width: 150px;
 	border-radius: 8px;
+
+    &:hover {
+        box-shadow: 0 0 10px black;
+    }
 `;
 
 export const CardContent = styled.div`

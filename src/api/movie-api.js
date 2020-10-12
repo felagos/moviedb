@@ -35,3 +35,9 @@ export const getRelatedVideos = async (id) => {
 	const response = await axios.get(`${ENV.API_URL}/movie/${id}/videos`);
 	return response.data.results;
 }
+
+
+export const getMoviesByType = async (type, page = 1) => {
+	const response = await axios.get(`${ENV.API_URL}/movie/${type}?page=${page}`);
+	return response.data;
+}

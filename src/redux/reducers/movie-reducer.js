@@ -9,7 +9,10 @@ const inititalState = {
 	active: null,
 	keywords: [],
 	recommendations: [],
-	related: []
+	related: [],
+	moviesTypes: {
+		results: []
+	}
 };
 
 export const movieReducer = (state = inititalState, action) => {
@@ -42,7 +45,15 @@ export const movieReducer = (state = inititalState, action) => {
 	}
 
 	if (action.type === MOVIE_TYPES.CLEAN_ACTIVE) {
-		return { ...state, related: [], recommendations: [], keywords: [], active: null };
+		return { ...state, related: [], recommendations: [], keywords: [], movies_types: { results: [] }, active: null };
+	}
+
+	if (action.type === MOVIE_TYPES.LOAD_MOVIE_BY_TYPE) {
+		return { ...state, moviesTypes: action.payload };
+	}
+
+	if (action.type === MOVIE_TYPES.LOAD_MORE_MOVIE_BY_TYPE) {
+		return { ...state, moviesTypes: { ...state.moviesTypes, results: [...state.moviesTypes.results, ...action.payload.results] } };
 	}
 
 	return state;

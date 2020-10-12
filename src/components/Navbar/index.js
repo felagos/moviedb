@@ -9,9 +9,9 @@ import { Sidebar } from '../Sidebar';
 import { Nav, ButtonMenu, HeaderLink, LinkContainer, ButtonAuth } from './styles';
 
 const linksMovie = [
-	{ to: "/", name: "Popular" },
-	{ to: "/", name: "Proximamente" },
-	{ to: "/", name: "Lo más valorado" }
+	{ to: "/movie/popular", name: "Popular" },
+	{ to: "/movie/popular", name: "Proximamente" },
+	{ to: "/movie/top-rated", name: "Lo más valorado" }
 ];
 const linksShow = [
 	{ to: "/", name: "Popular" },

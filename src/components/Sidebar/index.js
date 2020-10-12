@@ -15,13 +15,13 @@ export const Sidebar = ({ open, handleClose }) => {
 					<AccordionDetails>
 						<List>
 							<ListItem>
-								<Link to="/">Popular</Link>
+								<Link to="/movie/popular">Popular</Link>
 							</ListItem>
 							<ListItem>
-								<Link to="/">Proximamente</Link>
+								<Link to="/movie/popular">Proximamente</Link>
 							</ListItem>
 							<ListItem>
-								<Link to="/">Lo más valorado</Link>
+								<Link to="/movie/top-rated">Lo más valorado</Link>
 							</ListItem>
 						</List>
 					</AccordionDetails>

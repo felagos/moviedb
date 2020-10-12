@@ -8,7 +8,10 @@ const inititalState = {
         active: null,
         keywords: [],
         recommendations: [],
-        related: []
+        related: [],
+        moviesTypes: {
+            results: []
+        }
     },
     search: {
         search: {

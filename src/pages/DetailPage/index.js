@@ -44,7 +44,7 @@ const DetailPage = () => {
 	if (item === null) return null;
 
 	return (
-		<DetailContainer>
+		<DetailContainer data-testid="detail-container">
 			<Poster poster={item.poster_path} title={item.title || item.original_name} release={item.release_date || item.first_air_date} genres={item.genres} votes={item.vote_average} overview={item.overview} />
 			<MediaSections>
 				<MediaRelated recommendations={recommendations} related={related} />

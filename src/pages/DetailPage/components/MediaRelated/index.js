@@ -10,7 +10,7 @@ export const MediaRelated = ({ recommendations, related }) => {
                 recommendations.length !== 0 &&
                 <RelatedSection>
                     <Divider />
-                    <ListMedia title="Recomendados" data={recommendations} type="movies" />
+                    <ListMedia title="Recomendados" data={recommendations} type="movie" />
                 </RelatedSection>
             }
             {

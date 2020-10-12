@@ -19,7 +19,7 @@ describe('ListMedia Test', () => {
     beforeEach(cleanup);
 
     test('render - type movies', () => {
-        const { getByText, getAllByTestId } = render(<ListMedia data={mediasMovies} title={title} type="movies" />);
+        const { getByText, getAllByTestId } = render(<ListMedia data={mediasMovies} title={title} type="movie" />);
         const h2 = getByText(new RegExp(title), "i");
         const cards = getAllByTestId("card-media");
 
@@ -37,7 +37,7 @@ describe('ListMedia Test', () => {
     });
 
     test('render - empty', () => {
-        const { getByText } = render(<ListMedia data={[]} title={title} type="movies" />);
+        const { getByText } = render(<ListMedia data={[]} title={title} type="movie" />);
         const text = getByText(/No se encontraron resultados/i);
 
         expect(text).toBeInTheDocument();

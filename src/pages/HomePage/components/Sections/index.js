@@ -11,13 +11,13 @@ export const Sections = () => {
 	return (
 		<>
 			<HomeSection>
-				<ListMedia title="Popular" data={popular} type="movies" />
+				<ListMedia title="Popular" data={popular} type="movie" />
 			</HomeSection>
 			<HomeSection>
-				<ListMedia title="Proximamente" data={upcoming} type="movies" />
+				<ListMedia title="Proximamente" data={upcoming} type="movie" />
 			</HomeSection>
 			<HomeSection>
-				<ListMedia title="Tendencias" data={trending} type="movies" />
+				<ListMedia title="Tendencias" data={trending} type="movie" />
 			</HomeSection>
 		</>
 	)

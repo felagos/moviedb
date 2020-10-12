@@ -1,2 +1,2 @@
-export * from './movie-api';
+export * from './media-api';
 export * from './search-api';

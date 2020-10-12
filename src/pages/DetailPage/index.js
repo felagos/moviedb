@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../../redux';
+import { loadDetailMedia, cleanActiveMedia, loadKeywordsMedia, loadRecommendationsMedia, loadRelatedVideos } from '../../redux';
 import { getYear } from '../../helpers';
 import { MetaInfo } from './components/MetaInfo';
 import { Poster } from './components/Poster';
@@ -12,18 +12,15 @@ const DetailPage = () => {
 	const { id: slug, type } = useParams();
 	const id = slug.split("-")[0];
 
-	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
+	const { active: item, keywords, recommendations, related } = useSelector(state => state.media);
 	const dispatch = useDispatch();
 
 	const loadData = useCallback(
 		(id, type) => {
-			if (type === "movie") {
-				dispatch(loadDetailMovie(id));
-				dispatch(loadKeywordsMovie(id));
-				dispatch(loadRecommendationsMovie(id));
-				dispatch(loadRelatedVideos(id));
-			}
-
+			dispatch(loadDetailMedia(id, type));
+			dispatch(loadKeywordsMedia(id, type));
+			dispatch(loadRecommendationsMedia(id, type));
+			dispatch(loadRelatedVideos(id, type));
 		},
 		[dispatch]
 	)
@@ -32,14 +29,14 @@ const DetailPage = () => {
 		loadData(id, type);
 
 		return () => {
-			dispatch(clenActiveMovie());
+			dispatch(cleanActiveMedia());
 		}
 
 	}, [dispatch, id, loadData, type]);
 
 	useEffect(() => {
 		if (item) {
-			document.title = `${item.title} (${getYear(item.release_date)})`;
+			document.title = `${item.title} (${getYear(item.release_date || item.first_air_date)})`;
 		}
 	}, [item]);
 
@@ -48,10 +45,10 @@ const DetailPage = () => {
 
 	return (
 		<DetailContainer>
-			<Poster poster={item.poster_path} title={item.title} release={item.release_date} genres={item.genres} votes={item.vote_average} overview={item.overview} />
+			<Poster poster={item.poster_path} title={item.title || item.original_name} release={item.release_date || item.first_air_date} genres={item.genres} votes={item.vote_average} overview={item.overview} />
 			<MediaSections>
 				<MediaRelated recommendations={recommendations} related={related} />
-				<MetaInfo title={item.original_title} status={item.status} languages={item.spoken_languages} keywords={keywords} />
+				<MetaInfo title={item.original_title || item.original_name} status={item.status} languages={item.spoken_languages} keywords={keywords} />
 			</MediaSections>
 		</DetailContainer>
 	)

@@ -1,7 +1,7 @@
 import { store } from './index';
 
 const inititalState = {
-    movie: {
+    media: {
         popular: [],
         upcoming: [],
         trending: [],
@@ -9,7 +9,7 @@ const inititalState = {
         keywords: [],
         recommendations: [],
         related: [],
-        moviesTypes: {
+        mediasTypes: {
             results: []
         }
     },

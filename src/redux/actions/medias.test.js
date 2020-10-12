@@ -1,6 +1,6 @@
-import { clenActiveMovie, loadUpcomingMovies, loadDetailMovie, loadKeywordsMovie, loadPopularMovies, loadRecommendationsMovie, loadRelatedVideos, loadTrendingMovies } from './movies';
-import { getDetailMovie, getKeywordsMovies, getRelatedVideos, getPopularMovies, getRecommendationsMovies, getTrendingMovies, getUpcomingMovies } from '../../api';
-import { MOVIE_TYPES } from '../types';
+import { cleanActiveMedia, loadUpcomingMovies, loadKeywordsMedia, loadPopularMovies, loadRecommendationsMedia, loadRelatedVideos, loadTrendingMovies, loadDetailMedia } from './medias';
+import { getDetailMedia, getKeywordsMedias, getRelatedMedias, getPopularMovies, getRecommendationsMedias, getTrendingMovies, getUpcomingMovies } from '../../api';
+import { MEDIA_TYPES } from '../types';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
@@ -40,9 +40,9 @@ describe('movie actions test', () => {
         jest.clearAllMocks();
     })
 
-    test('clenActiveMovie test ', () => {
-        const response = clenActiveMovie();
-        expect(response.type).toEqual(MOVIE_TYPES.CLEAN_ACTIVE);
+    test('cleanActiveMedia test ', () => {
+        const response = cleanActiveMedia();
+        expect(response.type).toEqual(MEDIA_TYPES.CLEAN_ACTIVE);
     });
 
     test('loadPopularMovies test', async () => {
@@ -54,7 +54,7 @@ describe('movie actions test', () => {
         await store.dispatch(loadPopularMovies());
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_POPULAR);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_POPULAR);
     });
 
     test('loadUpcomingMovies test', async () => {
@@ -66,7 +66,7 @@ describe('movie actions test', () => {
         await store.dispatch(loadUpcomingMovies());
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_UPCOMING);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_UPCOMING);
     });
 
     test('loadTrendingMovies test', async () => {
@@ -78,49 +78,49 @@ describe('movie actions test', () => {
         await store.dispatch(loadTrendingMovies());
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_TRENDING);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_TRENDING);
     });
 
-    test('loadDetailMovie test', async () => {
+    test('getDetailMedia test', async () => {
         const data = {};
-        getDetailMovie.mockResolvedValue(data);
+        getDetailMedia.mockResolvedValue(data);
 
-        await store.dispatch(loadDetailMovie(Date.now()));
+        await store.dispatch(loadDetailMedia(Date.now()));
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.SET_ACTIVE);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.SET_ACTIVE);
     });
 
-    test('loadKeywordsMovie test', async () => {
+    test('loadKeywordsMedia test', async () => {
         const data = [{}];
-        getKeywordsMovies.mockResolvedValue(data);
+        getKeywordsMedias.mockResolvedValue(data);
 
-        await store.dispatch(loadKeywordsMovie(Date.now()));
+        await store.dispatch(loadKeywordsMedia(Date.now()));
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_KEYWORDS);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_KEYWORDS);
     });
 
     test('loadRelatedVideos test', async () => {
         const data = [{}];
-        getRelatedVideos.mockResolvedValue(data);
+        getRelatedMedias.mockResolvedValue(data);
 
         await store.dispatch(loadRelatedVideos(Date.now()));
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_RELATED);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_RELATED);
     });
 
-    test('loadRecommendationsMovie test', async () => {
+    test('loadRecommendationsMedia test', async () => {
         const data = [
             { poster_path: "" }
         ];
-        getRecommendationsMovies.mockResolvedValue(data);
+        getRecommendationsMedias.mockResolvedValue(data);
 
-        await store.dispatch(loadRecommendationsMovie(Date.now()));
+        await store.dispatch(loadRecommendationsMedia(Date.now()));
 
         const actions = store.getActions();
-        expect(actions[0].type).toEqual(MOVIE_TYPES.LOAD_RECCOMENDATIONS);
+        expect(actions[0].type).toEqual(MEDIA_TYPES.LOAD_RECCOMENDATIONS);
     });
 
 });

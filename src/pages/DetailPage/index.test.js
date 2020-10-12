@@ -13,7 +13,7 @@ import '@testing-library/jest-dom';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({
-    movie: {
+    media: {
         popular: [],
         upcoming: [],
         trending: [],

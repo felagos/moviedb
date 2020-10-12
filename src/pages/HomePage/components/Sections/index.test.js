@@ -4,14 +4,14 @@ import thunk from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../theme';
 import { cleanup } from '@testing-library/react-hooks';
-import { getByTestId, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({
-    movie: {
+    media: {
         popular: [{ poster_path: "imagen.jpg", original_title: "item titulo", title: "titulo", release_date: "2020-02-12", id: Date.now() }],
         upcoming: [{ poster_path: "imagen.jpg", original_title: "item titulo", title: "titulo", release_date: "2020-02-12", id: Date.now() }],
         trending: [{ poster_path: "imagen.jpg", original_title: "item titulo", title: "titulo", release_date: "2020-02-12", id: Date.now() }]

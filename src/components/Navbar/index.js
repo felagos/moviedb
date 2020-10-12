@@ -10,13 +10,13 @@ import { Nav, ButtonMenu, HeaderLink, LinkContainer, ButtonAuth } from './styles
 
 const linksMovie = [
 	{ to: "/movie/popular", name: "Popular" },
-	{ to: "/movie/popular", name: "Proximamente" },
+	{ to: "/movie/upcoming", name: "Proximamente" },
 	{ to: "/movie/top-rated", name: "Lo más valorado" }
 ];
 const linksShow = [
-	{ to: "/", name: "Popular" },
-	{ to: "/", name: "On TV" },
-	{ to: "/", name: "Lo más valorado" }
+	{ to: "/tv/popular", name: "Popular" },
+	{ to: "/tv/on_the_air", name: "On TV" },
+	{ to: "/tv/top-rated", name: "Lo más valorado" }
 ];
 const linksPeople = [
 	{ to: "/", name: "Popular" }

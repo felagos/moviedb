@@ -6,7 +6,7 @@ import { HomeSection } from './styles';
 
 export const Sections = () => {
 
-	const { popular, upcoming, trending } = useSelector(state => state.movie);
+	const { popular, upcoming, trending } = useSelector(state => state.media);
 
 	return (
 		<>

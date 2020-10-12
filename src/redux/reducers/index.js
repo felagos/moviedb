@@ -1,2 +1,2 @@
-export * from './movie-reducer';
+export * from './media-reducer';
 export * from './search-reducer';

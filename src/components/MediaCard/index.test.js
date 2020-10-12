@@ -21,16 +21,16 @@ describe('MediaCard test', () => {
     });
 
     test('trigger push history', () => {
+        const type = "movie";
         const history = {
             ...createMemoryHistory(),
             push: jest.fn()
         }
         const { getByTestId } = render(
             <Router history={history}>
-                <MediaCard item={item} />
+                <MediaCard item={item} type={type} />
             </Router>
         );
-        const type = "movie";
         const url = `/detail/${type}/${slug(item.id + "-" + (item.title || item.original_name))}`;
         const card = getByTestId("card-media");
 

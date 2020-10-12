@@ -15,13 +15,16 @@ export const MetaInfo = ({ title, status, languages, keywords }) => {
                 <span>{status}</span>
             </InfoSection>
 
-            <InfoSection>
-                <Title>Idioma original</Title>
-                <span>{languages.map(language => language.name).join(" - ")}</span>
-            </InfoSection>
+            {
+                Array.isArray(languages) &&
+                <InfoSection>
+                    <Title>Idioma original</Title>
+                    <span>{languages.map(language => language.name).join(" - ")}</span>
+                </InfoSection>
+            }
 
             {
-                keywords.length !== 0 &&
+                keywords && keywords?.length !== 0 &&
                 <InfoSection>
                     <Title>Palabras claves</Title>
                     <ListChip chips={keywords} />

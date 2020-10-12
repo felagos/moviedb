@@ -5,11 +5,10 @@ import { castToMonthDay, slug } from '../../helpers';
 import { Card, Title, CardContent, Image } from './styles';
 
 export const MediaCard = React.memo(
-	({ item }) => {
+	({ item, type }) => {
 		const history = useHistory();
 
 		const goToDetail = () => {
-			const type = item.seasons ? "tv" : "movie";
 			const url = `/detail/${type}/${slug(item.id + "-" + (item.title || item.original_name))}`;
 			history.push(url, { id: item.id, type });
 		};

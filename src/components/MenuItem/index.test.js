@@ -1,11 +1,9 @@
 import { render } from '@testing-library/react';
-import React, { useRef } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { MenuSelector } from './index';
 import { theme } from '../../theme';
 import { MemoryRouter } from 'react-router-dom';
-import { Popper } from '@material-ui/core';
-
 
 import '@testing-library/jest-dom';
 

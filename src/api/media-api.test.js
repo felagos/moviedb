@@ -1,4 +1,4 @@
-import * as api from './movie-api';
+import * as api from './media-api';
 import axios from 'axios';
 import { ENV } from '../env';
 
@@ -42,40 +42,43 @@ describe('Movie api test', () => {
         expect(axios.get).toHaveBeenCalledWith(url);
     });
 
-    test('getDetailMovie - return data', async () => {
+    test('getDetailMedia - return data', async () => {
         const id = Date.now();
-        const url = `${ENV.API_URL}/movie/${id}`;
+        const type = "movie"
+        const url = `${ENV.API_URL}/${type}/${id}`;
 
         const mockResponse = { data: {} };
         axios.get = jest.fn().mockResolvedValue(mockResponse);
 
-        const response = await api.getDetailMovie(id);
+        const response = await api.getDetailMedia(id, type);
 
         expect(response).toEqual(mockResponse.data);
         expect(axios.get).toHaveBeenCalledWith(url);
     });
 
-    test('getRecommendationsMovies - return data', async () => {
+    test('getRecommendationsMedias - return data', async () => {
         const id = Date.now();
+        const type = "movie"
         const url = `${ENV.API_URL}/movie/${id}/recommendations`;
 
         const mockResponse = { data: { results: [{}] } };
         axios.get = jest.fn().mockResolvedValue(mockResponse);
 
-        const response = await api.getRecommendationsMovies(id);
+        const response = await api.getRecommendationsMedias(id, type);
 
         expect(response).toEqual(mockResponse.data.results);
         expect(axios.get).toHaveBeenCalledWith(url);
     });
 
-    test('getKeywordsMovies - return data', async () => {
+    test('getKeywordsMedias - return data', async () => {
         const id = Date.now();
+        const type = "movie"
         const url = `${ENV.API_URL}/movie/${id}/keywords`;
 
         const mockResponse = { data: { keywords: [{}] } };
         axios.get = jest.fn().mockResolvedValue(mockResponse);
 
-        const response = await api.getKeywordsMovies(id);
+        const response = await api.getKeywordsMedias(id, type);
 
         expect(response).toEqual(mockResponse.data.keywords);
         expect(axios.get).toHaveBeenCalledWith(url);
@@ -83,12 +86,13 @@ describe('Movie api test', () => {
 
     test('getRelatedVideos - return data', async () => {
         const id = Date.now();
+        const type = "movie"
         const url = `${ENV.API_URL}/movie/${id}/videos`;
 
         const mockResponse = { data: { results: [{}] } };
         axios.get = jest.fn().mockResolvedValue(mockResponse);
 
-        const response = await api.getRelatedVideos(id);
+        const response = await api.getRelatedMedias(id, type);
 
         expect(response).toEqual(mockResponse.data.results);
         expect(axios.get).toHaveBeenCalledWith(url);

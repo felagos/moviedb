@@ -13,8 +13,6 @@ jobs:
   include:
   - stage: test
     script: npm run test
-  - stage: test_echo
-    script: echo "hola mundo"
 deploy:
   provider: heroku
   api_key:

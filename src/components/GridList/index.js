@@ -6,9 +6,9 @@ import { GridItem, GridContainer } from './styles';
 export const GridList = ({ list }) => {
 
     return (
-        <GridContainer container spacing={1}>
+        <GridContainer container>
             <Grid item xs={12}>
-                <Grid container justify="center" spacing={5}>
+                <Grid container justify="center">
                     {
                         list.map((item, idx) => (
                             <GridItem key={idx} item>

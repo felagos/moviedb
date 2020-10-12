@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadDetailMovie, clenActiveMovie, loadKeywordsMovie, loadRecommendationsMovie, loadRelatedVideos } from '../../redux';
@@ -9,29 +9,40 @@ import { MediaRelated } from './components/MediaRelated';
 import { DetailContainer, MediaSections } from './styles';
 
 const DetailPage = () => {
-	const { id: slug } = useParams();
+	const { id: slug, type } = useParams();
 	const id = slug.split("-")[0];
 
 	const { active: item, keywords, recommendations, related } = useSelector(state => state.movie);
 	const dispatch = useDispatch();
 
+	const loadData = useCallback(
+		(id, type) => {
+			if (type === "movie") {
+				dispatch(loadDetailMovie(id));
+				dispatch(loadKeywordsMovie(id));
+				dispatch(loadRecommendationsMovie(id));
+				dispatch(loadRelatedVideos(id));
+			}
+
+		},
+		[dispatch]
+	)
+
 	useEffect(() => {
-		dispatch(loadDetailMovie(id));
-		dispatch(loadKeywordsMovie(id));
-		dispatch(loadRecommendationsMovie(id));
-		dispatch(loadRelatedVideos(id));
+		loadData(id, type);
 
 		return () => {
 			dispatch(clenActiveMovie());
 		}
 
-	}, [dispatch, id]);
+	}, [dispatch, id, loadData, type]);
 
 	useEffect(() => {
 		if (item) {
 			document.title = `${item.title} (${getYear(item.release_date)})`;
 		}
 	}, [item]);
+
 
 	if (item === null) return null;
 

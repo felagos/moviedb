@@ -13,9 +13,11 @@ export const MenuSelector = ({ anchorEl, open, handleClose, links }) => {
 		>
 			{
 				links.map((link, idx) => (
-					<MenuItem key={idx} onClick={handleClose}>
-						<MenuLink to={link.to}>{link.name}</MenuLink>
-					</MenuItem>
+					<MenuLink key={idx} to={link.to}>
+						<MenuItem onClick={handleClose}>
+							{link.name}
+						</MenuItem>
+					</MenuLink>
 				))
 			}
 		</Menu>

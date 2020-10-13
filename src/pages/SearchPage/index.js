@@ -16,7 +16,7 @@ export const SearchPage = () => {
 	}, [dispatch, params]);
 
 	return (
-		<ResultContainer>
+		<ResultContainer data-testid="search-page">
 			<SearchInfo />
 			<ListSearch />
 		</ResultContainer>

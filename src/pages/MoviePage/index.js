@@ -23,10 +23,12 @@ const MoviePage = () => {
     };
 
     return (
-        <FlexContainer direction="column">
-            <GridList list={mediasTypes.results} type={type} />
-            {mediasTypes?.results.length !== 0 && <Button variant="contained" onClick={handleLoadMoreData} fullWidth>Cargar más</Button>}
-        </FlexContainer>
+        <div data-testid="media-page">
+            <FlexContainer direction="column">
+                <GridList list={mediasTypes.results} type={type} />
+                {mediasTypes?.results.length !== 0 && <Button variant="contained" onClick={handleLoadMoreData} fullWidth>Cargar más</Button>}
+            </FlexContainer>
+        </div>
     )
 }
 

@@ -16,10 +16,10 @@ const HomePage = () => {
 	}, [dispatch]);
 
 	return (
-		<>
+		<div data-testid="home-page">
 			<Search />
 			<Sections />
-		</>
+		</div>
 	)
 }
 

@@ -7,6 +7,7 @@ import { useToggle } from '../../hooks';
 import { MenuSelector } from '../MenuItem';
 import { Sidebar } from '../Sidebar';
 import { Nav, ButtonMenu, HeaderLink, LinkContainer, ButtonAuth } from './styles';
+import { getTokeLogin } from '../../api';
 
 const linksMovie = [
 	{ to: "/movie/popular", name: "Popular" },
@@ -31,6 +32,12 @@ export const Navbar = () => {
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);
 	const btnPeople = useRef(null);
+	
+	const handleLogin = async () => {
+		const urlCallback = window.location.origin;
+		const response = await getTokeLogin();
+		window.location.href =`https://www.themoviedb.org/authenticate/${response.request_token}?redirect_to=${urlCallback}`;
+	};
 
 	return (
 		<>
@@ -54,7 +61,7 @@ export const Navbar = () => {
 						<Button ref={btnPeople} variant="outlined" onClick={handleOpenPeople}>Personas</Button>
 						<MenuSelector anchorEl={btnPeople.current} open={openPeople} handleClose={handleClosePeople} links={linksPeople} />
 					</LinkContainer>
-					<ButtonAuth>
+					<ButtonAuth onClick={handleLogin}>
 						<IconButton>
 							<AccountCircle />
 						</IconButton>

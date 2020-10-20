@@ -21,3 +21,7 @@ export const SEARCH_TYPES = {
 	DO_SEARCH: "DO_SEARCH",
 	DO_SEARCH_MORE: "DO_SEARCH_MORE"
 }
+
+export const AUTH_ACTIONS = {
+    SET_TOKEN: "SET_TOKEN",
+};

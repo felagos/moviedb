@@ -20,6 +20,9 @@ const inititalState = {
         },
         query: "",
         type: ""
+    },
+    auth: {
+        token: null
     }
 }
 

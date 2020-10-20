@@ -32,28 +32,28 @@ describe("AppRouter Test", () => {
         expect(element).toBeInTheDocument();
     });
 
-    xtest("render detail page", async () => {
+    test("render detail page", async () => {
         const { getByTestId } = renderRouter("/detail/movie/586334");
 
         const element = await waitForElement(() => getByTestId("detail-page"));
         expect(element).toBeInTheDocument();
     });
 
-    xtest("render search page", async () => {
+    test("render search page", async () => {
         const { getByTestId } = renderRouter("/search?query=one");
 
         const element = await waitForElement(() => getByTestId("search-page"));
         expect(element).toBeInTheDocument();
     });
 
-    xtest("render search page", async () => {
+    test("render search page", async () => {
         const { getByTestId } = renderRouter("/tv/popular");
 
         const element = await waitForElement(() => getByTestId("media-page"));
         expect(element).toBeInTheDocument();
     });
 
-    xtest("render not found page", async () => {
+    test("render not found page", async () => {
         const { getByTestId } = renderRouter("/unknow");
 
         const element = await waitForElement(() => getByTestId("notfound-page"));

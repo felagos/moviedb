@@ -46,18 +46,6 @@ export const Sidebar = ({ open, handleClose }) => {
 					</AccordionDetails>
 				</AccordionContainer>
 
-				<AccordionContainer>
-					<AccordionSummary expandIcon={<ExpandIcon />}>
-						<Title>Personas</Title>
-					</AccordionSummary>
-					<AccordionDetails>
-						<List>
-							<ListItem>
-								<Link to="/">Popular</Link>
-							</ListItem>
-						</List>
-					</AccordionDetails>
-				</AccordionContainer>
 			</DrawerContainer>
 		</Drawer>
 	)

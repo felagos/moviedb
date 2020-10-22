@@ -19,24 +19,22 @@ const linksShow = [
 	{ to: "/tv/on_the_air", name: "On TV" },
 	{ to: "/tv/top-rated", name: "Lo más valorado" }
 ];
-const linksPeople = [
-	{ to: "/", name: "Popular" }
-];
 
 export const Navbar = () => {
 	const [openMovie, handleOpenMovie, handleCloseMovie] = useToggle(false);
 	const [openTvShow, handleOpenTvShow, handleCloseTvShow] = useToggle(false);
-	const [openPeople, handleOpenPeople, handleClosePeople] = useToggle(false);
 	const [openDrawer, handleOpenDrawer, handleCloseDrawer] = useToggle(false);
 
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);
 	const btnPeople = useRef(null);
-	
+
+	const token = localStorage.getItem("token");
+
 	const handleLogin = async () => {
 		const urlCallback = window.location.origin;
 		const response = await getTokeLogin();
-		window.location.href =`https://www.themoviedb.org/authenticate/${response.request_token}?redirect_to=${urlCallback}`;
+		window.location.href = `https://www.themoviedb.org/authenticate/${response.request_token}?redirect_to=${urlCallback}`;
 	};
 
 	return (
@@ -58,14 +56,14 @@ export const Navbar = () => {
 						<Button ref={btnShow} variant="outlined" onClick={handleOpenTvShow}>TV Shows</Button>
 						<MenuSelector anchorEl={btnShow.current} open={openTvShow} handleClose={handleCloseTvShow} links={linksShow} />
 
-						<Button ref={btnPeople} variant="outlined" onClick={handleOpenPeople}>Personas</Button>
-						<MenuSelector anchorEl={btnPeople.current} open={openPeople} handleClose={handleClosePeople} links={linksPeople} />
 					</LinkContainer>
-					<ButtonAuth onClick={handleLogin}>
-						<IconButton>
-							<AccountCircle />
-						</IconButton>
-					</ButtonAuth>
+					{
+						!token && <ButtonAuth onClick={handleLogin}>
+							<IconButton>
+								<AccountCircle />
+							</IconButton>
+						</ButtonAuth>
+					}
 				</Toolbar>
 			</Nav>
 			<Sidebar open={openDrawer} handleClose={handleCloseDrawer} />

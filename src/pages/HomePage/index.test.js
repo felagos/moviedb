@@ -58,7 +58,7 @@ describe('HomePage Test', () => {
         expect(container.childNodes.length).toBeGreaterThan(0);
     });
 
-    xtest('handle session - approved', async () => {
+    test('handle session - approved', async () => {
         global.window.history.replaceState = jest.fn();
         const response = {
             session_id: "token"

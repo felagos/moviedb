@@ -27,7 +27,6 @@ export const Navbar = () => {
 
 	const btnMovie = useRef(null);
 	const btnShow = useRef(null);
-	const btnPeople = useRef(null);
 
 	const token = localStorage.getItem("token");
 

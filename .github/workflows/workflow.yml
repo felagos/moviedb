@@ -12,9 +12,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
-    - run: |
-      npm ci
-      npm run test
+    - name: Install yarn and run unittest
+      run: |
+        npm ci
+        npm run test
     - name: Publish to Github Packages Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:

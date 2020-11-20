@@ -1,0 +1,8 @@
+**/.git
+.editorconfig
+.gitignore
+README.md
+
+/node_modules
+/coverage
+/build

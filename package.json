@@ -26,8 +26,7 @@
     "build": "CI=true && react-scripts build",
     "build:normal": "react-scripts build",
     "build:prod": "CI=true && react-scripts build && cp .env ./build",
-    "test": "react-scripts test --watchAll=false --ci --verbose --collectCoverage --updateSnapshot",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false --ci --verbose --collectCoverage --updateSnapshot"
   },
   "eslintConfig": {
     "extends": "react-app"

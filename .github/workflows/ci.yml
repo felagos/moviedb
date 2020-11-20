@@ -27,12 +27,12 @@ jobs:
    steps:
     - name: Deploy to droplet using SSH
       uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          debug: true
-          script: |
-            cd ${{ secrets.FOLDER }}
-            git pull origin master
-            npm run build
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        debug: true
+        script: |
+          cd ${{ secrets.FOLDER }}
+          git pull origin master
+          npm run build

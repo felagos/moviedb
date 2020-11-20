@@ -21,18 +21,3 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm test
-  
-  deploy:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Deploy to droplet using SSH
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        debug: true
-        script: |
-          cd ${{ secrets.FOLDER }}
-          git pull origin master
-          npm run build

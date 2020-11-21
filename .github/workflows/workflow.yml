@@ -32,6 +32,6 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         rm: true
-        source: "build/*, ./build/css/*, ./build/static/*"
+        source: "./build/*"
         target: ${{ secrets.FOLDER_DESTINATION }}
         strip_components: 3 # this is important

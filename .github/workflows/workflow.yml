@@ -25,13 +25,13 @@ jobs:
     - name: Run test
       run: npm run test
     - name: copy file via ssh key
-      uses: appleboy/scp-action@master
+      uses: garygrossgarten/github-action-scp@release
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
+        privateKey: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        rm: true
-        source: "./build/*"
-        target: ${{ secrets.FOLDER_DESTINATION }}
-        strip_components: 3 # this is important
+        rmRemote: true
+        recursive: true
+        local: "./build/*"
+        remote: ${{ secrets.FOLDER_DESTINATION }}

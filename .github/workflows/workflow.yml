@@ -20,6 +20,8 @@ jobs:
       env:
         REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+    - name: Show files
+      run: ls -a ./build     
     - name: Run test
       run: npm run test
     - name: copy file via ssh key

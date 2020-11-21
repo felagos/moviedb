@@ -33,5 +33,5 @@ jobs:
         port: ${{ secrets.PORT }}
         rmRemote: true
         recursive: true
-        local: "./build/*"
+        local: "./build"
         remote: ${{ secrets.FOLDER_DESTINATION }}

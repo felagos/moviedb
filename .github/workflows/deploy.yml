@@ -35,3 +35,4 @@ jobs:
         recursive: true
         local: "./build"
         remote: ${{ secrets.FOLDER_DESTINATION }}
+        concurrency: 10

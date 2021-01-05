@@ -16,6 +16,7 @@ export const GridList = ({ list, type }) => {
                             </GridItem>
                         ))
                     }
+                    {list.length === 0 && <h2>No se encontraron resultados</h2>}
                 </Grid>
             </Grid>
         </GridContainer>

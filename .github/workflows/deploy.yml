@@ -5,9 +5,29 @@ on:
     branches: [ master ]
 
 jobs:
+  install-dependencies:
+    name: install-dependencies
+    runs-on: ubunte-latest
+    steps:
+      - name: Cache node modules
+        id: cacheDependencies
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Run install
+        run: npm ci
   test-app:
     runs-on: ubuntu-latest
     name: test-app
+    needs: install-dependencies
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14
@@ -15,6 +35,7 @@ jobs:
         with:
           node-version: '14' 
       - name: Run install
+        if: steps.cacheDependencies.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test app
         run: npm run test
@@ -32,6 +53,7 @@ jobs:
         with:
           node-version: '14'
       - name: Run install
+        if: steps.cacheDependencies.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run build
         run: CI=true && npm run build

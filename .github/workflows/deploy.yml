@@ -16,7 +16,7 @@ jobs:
     - name: Run install
       run: npm ci
     - name: Run build
-      run: npm run build
+      run: CI=true && npm run build
       env:
         REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}

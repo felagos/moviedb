@@ -9,6 +9,7 @@ jobs:
     name: install-dependencies
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Cache node modules
         id: cacheDependencies
         uses: actions/cache@v2

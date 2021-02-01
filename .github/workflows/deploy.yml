@@ -5,34 +5,48 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test-app:
     runs-on: ubuntu-latest
+    name: test-app
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - name: Run install
-      run: npm ci
-    - name: Run build
-      run: CI=true && npm run build
-      env:
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-    - name: Show files
-      run: ls -a ./build     
-    - name: Run test
-      run: npm run test
-    - name: copy file via ssh key
-      uses: garygrossgarten/github-action-scp@release
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        privateKey: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        rmRemote: true
-        recursive: true
-        local: "./build"
-        remote: ${{ secrets.FOLDER_DESTINATION }}
-        concurrency: 10
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14' 
+      - name: Run install
+        run: npm CI
+      - name: Test app
+        run: npm run test
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+    deploy-app:
+      runs-on: ubuntu-latest
+      needs: test-app
+      name: deploy-app
+      steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js 14
+          uses: actions/setup-node@v1
+          with:
+            node-version: '14'
+        - name: Run install
+          run: npm ci
+        - name: Run build
+          run: CI=true && npm run build
+          env:
+            REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+            REACT_APP_API_URL: ${{ secrets.REACT_APP_API_UR
+        - name: copy file via ssh key
+          uses: garygrossgarten/github-action-scp@release
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            privateKey: ${{ secrets.KEY }}
+            port: ${{ secrets.PORT }}
+            rmRemote: true
+            recursive: true
+            local: "./build"
+            remote: ${{ secrets.FOLDER_DESTINATION }}
+            concurrency: 10

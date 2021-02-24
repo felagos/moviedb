@@ -44,7 +44,7 @@ jobs:
         run: CI=true && npm run build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_UR }}
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
       - name: copy file via ssh key
         uses: garygrossgarten/github-action-scp@release
         with:

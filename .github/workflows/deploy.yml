@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test-app:
+  setup-app:
     runs-on: ubuntu-latest
     name: test-app
     steps:
@@ -22,6 +22,15 @@ jobs:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
+  test-app:
+    runs-on: ubuntu-latest
+    name: test-app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14' 
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
         run: npm ci

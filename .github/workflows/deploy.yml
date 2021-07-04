@@ -34,7 +34,7 @@ jobs:
           node-version: '14' 
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Test app
         run: npm run test
         env:
@@ -57,7 +57,7 @@ jobs:
           node-version: '14'
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm i
       - name: Run build
         run: CI=true && npm run build
         env:

@@ -15,5 +15,10 @@ pipeline {
         sh 'npm test'
       }
     }
+	stage('Run E2E ests') {
+      steps {
+        sh 'npm run e2e:ci'
+      }
+    }
   }
 }

@@ -4,10 +4,6 @@ pipeline {
     nodejs 'node-14'
   }
 
-  options {
-    timeout(time: 2, unit: 'MINUTES')
-  }
-
   stages {
     stage('Install dependencies') {
       steps {

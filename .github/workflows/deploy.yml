@@ -14,12 +14,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - uses: actions/cache@v2
+
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v2
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+
       - name: Install packages
-        run: yarn
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
   test-app-unit:
     runs-on: ubuntu-latest
     needs: setup-app

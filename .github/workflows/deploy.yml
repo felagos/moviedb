@@ -15,16 +15,11 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Cache dependencies
-        id: cache-deps
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('yarn.lock') }}
-
-
-      - name: Install packages
-        run: yarn install --frozen-lockfile
+          key: node-modules-${{ hashFiles('.yarnlock') }}
+      - run: yarn
 
   test-app-unit:
     runs-on: ubuntu-latest
@@ -32,8 +27,9 @@ jobs:
     name: test-app
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
 
@@ -56,8 +52,9 @@ jobs:
     name: test-app-e2e
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
 

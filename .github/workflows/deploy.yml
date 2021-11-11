@@ -34,7 +34,7 @@ jobs:
           node-version: '14'
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: yarn i
+        run: yarn
       - name: Test app
         run: yarn test
         env:

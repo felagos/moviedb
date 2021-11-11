@@ -13,7 +13,7 @@ jobs:
       - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: '14' 
+          node-version: '14'
       - name: Install Packages
         run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
       - name: Cache Node Modules
@@ -21,7 +21,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+          key: node-modules-${{ hashFiles('yarn.lock') }}
   test-app:
     runs-on: ubuntu-latest
     needs: setup-app
@@ -31,47 +31,38 @@ jobs:
       - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: '14' 
+          node-version: '14'
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: npm i
+        run: yarn i
       - name: Test app
-        run: npm run test
+        run: yarn test
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
       - name: Test E2E
-        run: npm run e2e:ci
+        run: yarn e2e:ci
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
   deploy-app:
-    runs-on: ubuntu-latest
     needs: test-app
-    name: deploy-app
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - name: Run install
-        if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: npm i
-      - name: Run build
-        run: CI=true && npm run build
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-      - name: copy file via ssh key
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          rmRemote: true
-          recursive: true
-          local: "./build"
-          remote: ${{ secrets.FOLDER_DESTINATION }}
-          concurrency: 10
+		- name: Set Env Vars on Vercel Project
+		  uses: dkershner6/vercel-set-env-action@v1
+		  with:
+			token: ${{ secrets.VERCEL_TOKEN }}
+            orgId: ${{ secrets.VERCEL_ORG_ID }} # optional, without will use personal
+            projectName: moviebd
+            envVariableKeys: REACT_APP_API_KEY,REACT_APP_API_URL
+            env:
+				REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+                REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+		- name: deploy site to vercel
+		  uses: amondnet/vercel-action@v20
+		  with:
+			vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+			github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+			vercel-args: '--prod' #Optional
+			vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+			vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required

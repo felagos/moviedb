@@ -55,7 +55,7 @@ jobs:
             token: ${{ secrets.VERCEL_TOKEN }}
             teamId: ${{ secrets.VERCEL_TEAM_ID }}
             projectName: moviedb
-            envVariableKeys: REACT_APP_API_KEY,REACT_APP_API_URL
+            envVariableKeys: REACT_APP_API_URL,REACT_APP_API_KEY
           env:
              REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
              TARGET_REACT_APP_API_URL: preview,development,production

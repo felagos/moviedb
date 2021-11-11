@@ -59,11 +59,11 @@ jobs:
           env:
               REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
               TARGET_REACT_APP_API_URL: preview,development,production
-              PLAIN_REACT_APP_API_URL: plain
+              TYPE_REACT_APP_API_URL: plain
 
               REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
               TARGET_REACT_APP_API_KEY: preview,development,production
-              PLAIN_REACT_APP_API_KEY: plain
+              TYPE_REACT_APP_API_KEY: plain
         - name: deploy site to vercel
           uses: amondnet/vercel-action@v20
           with:

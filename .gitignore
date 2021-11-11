@@ -28,3 +28,4 @@ yarn-error.log*
 .vscode
 
 /e2e/cypress/videos/*
+.vercel

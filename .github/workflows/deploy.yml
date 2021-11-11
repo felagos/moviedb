@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: '14'
       - name: Run install
-        if: steps.cacheDependencies.outputs.cache-hit != 'true'oka
+        if: steps.cacheDependencies.outputs.cache-hit != 'true'
         run: yarn
       - name: Test app
         run: yarn test

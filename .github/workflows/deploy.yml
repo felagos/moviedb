@@ -37,6 +37,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
+      - name: Install packages
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
       - name: Test app
         run: yarn test
         env:
@@ -52,6 +56,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
+      - name: Install packages
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
       - name: Test E2E
         run: yarn e2e:ci
         env:

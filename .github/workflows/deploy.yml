@@ -53,12 +53,16 @@ jobs:
           uses: dkershner6/vercel-set-env-action@v1
           with:
             token: ${{ secrets.VERCEL_TOKEN }}
-            orgId: ${{ secrets.VERCEL_ORG_ID }} # optional, without will use personal
+            teamId: ${{ secrets.VERCEL_TEAM_ID }}
             projectName: moviebd
             envVariableKeys: REACT_APP_API_KEY,REACT_APP_API_URL
           env:
              REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+             TARGET_REACT_APP_API_URL: production
+             PLAIN_REACT_APP_API_URL: plain
              REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+             TARGET_REACT_APP_API_KEY: production
+             PLAIN_REACT_APP_API_KEY: plain
         - name: deploy site to vercel
           uses: amondnet/vercel-action@v20
           with:

@@ -53,7 +53,6 @@ jobs:
           uses: dkershner6/vercel-set-env-action@v1
           with:
             token: ${{ secrets.VERCEL_TOKEN }}
-            orgId: ${{ secrets.VERCEL_ORG_ID }} # optional, without will use personal
             projectName: moviebd
             envVariableKeys: REACT_APP_API_KEY,REACT_APP_API_URL
           env:

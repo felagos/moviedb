@@ -18,7 +18,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('.yarnlock') }}
+          key: node-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
 
   test-app-unit:
@@ -34,14 +34,11 @@ jobs:
           node-version: '14'
 
       - name: Restore node_modules
-        id: cache-node-modules
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('yarn.lock') }}
-
-      - name: Test app
-        run: yarn test
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - run: yarn test
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}

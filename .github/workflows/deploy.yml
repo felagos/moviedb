@@ -49,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test-app
     steps:
+        - uses: actions/checkout@v2
         - name: Set Env Vars on Vercel Project
           uses: dkershner6/vercel-set-env-action@v1
           with:

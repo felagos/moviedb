@@ -34,7 +34,7 @@ jobs:
           node-version: '14'
       - name: Run install
         if: steps.cacheDependencies.outputs.cache-hit != 'true'
-        run: yarn i
+        run: yarn
       - name: Test app
         run: yarn test
         env:
@@ -60,6 +60,7 @@ jobs:
              REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
              TARGET_REACT_APP_API_URL: production
              PLAIN_REACT_APP_API_URL: plain
+
              REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
              TARGET_REACT_APP_API_KEY: production
              PLAIN_REACT_APP_API_KEY: plain

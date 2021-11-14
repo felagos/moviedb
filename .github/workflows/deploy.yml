@@ -26,12 +26,12 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          yanr
+          yarn
 
   test-app-unit:
     runs-on: ubuntu-latest
     needs: setup-app
-    name: test-app
+    name: test-app-unit
     steps:
       - uses: actions/checkout@v2
 
@@ -55,7 +55,7 @@ jobs:
   test-app-e2e:
     runs-on: ubuntu-latest
     needs: setup-app
-    name: test-app
+    name: test-app-e2e
     steps:
       - uses: actions/checkout@v2
 

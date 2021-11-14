@@ -1,13 +1,12 @@
-name: "Build Release"
+name: moviedb
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [ master ]
+    push:
+        branches: [ master ]
 
 jobs:
-  prepare:
-    runs-on: self-hosted
+  setup-app:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
 

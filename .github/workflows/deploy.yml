@@ -82,6 +82,9 @@ jobs:
         with:
           path: .cache/Cypress
           key: cypress-binary-${{ hashFiles('yarn.lock') }}
+      
+      - name: Install Cypress
+        run: npx cypress install
 
       - name: Test E2E
         run: yarn e2e:ci
